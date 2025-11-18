@@ -184,3 +184,4 @@ C:\SAHAAI\Sahaai.api\obj\Debug\net9.0\Sahaai.Api.pdb
 C:\SAHAAI\Sahaai.api\obj\Debug\net9.0\Sahaai.Api.genruntimeconfig.cache
 C:\SAHAAI\Sahaai.api\obj\Debug\net9.0\ref\Sahaai.Api.dll
 C:\SAHAAI\Sahaai.api\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\SAHAAI\Sahaai.api\obj\Debug\net9.0\Sahaai.Api.sourcelink.json

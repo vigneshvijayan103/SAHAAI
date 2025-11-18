@@ -17,3 +17,4 @@ C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\refint\Sahaai.Infrastructure.dl
 C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.pdb
 C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.genruntimeconfig.cache
 C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\ref\Sahaai.Infrastructure.dll
+C:\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.sourcelink.json

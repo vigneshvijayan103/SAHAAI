@@ -18,40 +18,45 @@ namespace Sahaai.Infrastructure.Services
         }
 
         //generate and store otp
-        public async Task<string> GenerateOtpAsync(string key)
+        public async Task<string> GenerateOtpAsync(string email, string purpose)
         {
-
             var otp = new Random().Next(100000, 999999).ToString();
 
+            
+            string redisKey = $"otp:{purpose}:{email}";
 
             await _cache.SetStringAsync(
-                $"otp:{key}",
+                redisKey,
                 otp,
                 new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)  
                 });
 
             return otp;
         }
 
 
+
         //verify otp
-        public async Task<bool> VerifyOtpAsync(string key, string otp)
+        public async Task<bool> VerifyOtpAsync(string email, string purpose, string otp)
         {
-            var storedOtp = await _cache.GetStringAsync($"otp:{key}");
+            string redisKey = $"otp:{purpose}:{email}";
+
+            var storedOtp = await _cache.GetStringAsync(redisKey);
 
             if (storedOtp == null)
-                return false;
+                return false; 
 
             if (storedOtp == otp)
             {
-                await _cache.RemoveAsync($"otp:{key}");
+                await _cache.RemoveAsync(redisKey); 
                 return true;
             }
 
-            return false;
+            return false; 
         }
+
 
     }
 }

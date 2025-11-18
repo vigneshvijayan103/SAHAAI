@@ -49,6 +49,16 @@ namespace Sahaai.Infrastructure.Repositories
         }
 
 
+        //get user by Email
+        public async Task<User?> GetUserByEmailAsync(string email)
+        {
+            return await _db.Users
+                .Include(u => u.Login)   
+                .FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+
+
         //Register User
         public async  Task<User> AddUserAsync(User user)
         {

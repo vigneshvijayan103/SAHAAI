@@ -13,3 +13,4 @@ C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.dll
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\refint\Sahaai.Application.dll
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.pdb
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\ref\Sahaai.Application.dll
+C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.sourcelink.json

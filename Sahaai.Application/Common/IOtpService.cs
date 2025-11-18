@@ -9,9 +9,9 @@ namespace Sahaai.Application.Common
 {
     public interface IOtpService
     {
-        Task<string> GenerateOtpAsync(string key);
+        Task<string> GenerateOtpAsync(string email, string purpose);
 
-       
-        Task<bool> VerifyOtpAsync(string key, string otp);
+
+        Task<bool> VerifyOtpAsync(string email, string purpose, string otp);
     }
 }

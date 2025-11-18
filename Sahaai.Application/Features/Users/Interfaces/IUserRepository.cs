@@ -13,6 +13,7 @@ namespace Sahaai.Application.Features.Users.Interfaces
         Task<bool> ExistsAsync(string? email, string? username);
 
         Task<Login> GetUserNameAsync(string UserName);
+        Task<User?> GetUserByEmailAsync(string email);
         Task<User> AddUserAsync(User user); 
 
         Task VerifyUserEmailAsync(string email);

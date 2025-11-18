@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sahaai.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72753a3d53236bb869e9cbdd17398eb32172a030")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sahaai.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sahaai.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
