@@ -45,7 +45,7 @@ namespace Sahaai.Application.Features.Users.Services
         //Register User 
         public async Task<String> RegisterUserAsync(UserRegisterDto dto)
         {
-            var existing = await _repo.ExistsAsync(dto.Email, dto.Username);
+
             if (await _repo.ExistsAsync(dto.Email, null))
                 return "Email already exists";
 
@@ -53,16 +53,9 @@ namespace Sahaai.Application.Features.Users.Services
             if (await _repo.ExistsAsync(null, dto.Username))
                 return "Username already exists";
 
+            _auth.CreatePasswordHash(dto.Password, out byte[] hash, out byte[] salt);
 
-            byte[] hashBytes;
-            byte[] saltBytes;
-
-            _auth.CreatePasswordHash(dto.Password, out hashBytes, out saltBytes);
-
-            string hashString = Convert.ToBase64String(hashBytes);
-            string saltString = Convert.ToBase64String(saltBytes);
-
-
+           
             var user = _mapper.Map<User>(dto);
             user.Role = UserRole.User;
             user.IsActive = true;
@@ -73,36 +66,35 @@ namespace Sahaai.Application.Features.Users.Services
             user.Login = new Login
             {
                 Username = dto.Username,
-                PasswordHash = hashString,
-                PasswordSalt = saltString
+                PasswordHash = Convert.ToBase64String(hash),
+                PasswordSalt = Convert.ToBase64String(salt)
+
             };
             await _repo.AddUserAsync(user);
 
             //otp generation 
-            var otp = await _otpService.GenerateOtpAsync(dto.Email);
+            var otp = await _otpService.GenerateOtpAsync(dto.Email, "register");
 
 
             //send otp to email
-            await _mailkitService.SendOtpEmailAsync(dto.Email, otp);
+            await _mailkitService.SendOtpEmailAsync(dto.Email, otp, "register");
 
             return "Registered successfully. OTP sent to your email";
 
         }
 
         //resend otp
-
         public async Task ResendOtpAsync(string email)
         {
             
             var user= await _repo.ExistsAsync(email,null);
-        C:\SAHAAI\.gitignore
-
+ 
             if (!user)
                 throw new KeyNotFoundException("Email not found");
 
-            var otp=await _otpService.GenerateOtpAsync(email);
+            var otp=await _otpService.GenerateOtpAsync(email, "register");
             
-            await _mailkitService.SendOtpEmailAsync(email ,otp);
+            await _mailkitService.SendOtpEmailAsync(email ,otp, "register");
         }
 
 
@@ -111,7 +103,7 @@ namespace Sahaai.Application.Features.Users.Services
 
         public async Task<bool> VerifyOtpAsync(string email, string otp)
         {
-            var isValid = await _otpService.VerifyOtpAsync(email, otp);
+            var isValid = await _otpService.VerifyOtpAsync(email, "register", otp );
             if (!isValid)
                 return false;
 
@@ -156,6 +148,10 @@ namespace Sahaai.Application.Features.Users.Services
 
             return token;
         }
+
+        //forgot password
+
+
 
 
 

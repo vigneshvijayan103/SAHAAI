@@ -39,15 +39,18 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-//Autoo mapper and fluent validation
+//Auto mapper and fluent validation
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>();
+
 
 //Dependency Injection
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<UserAuthService>();
+builder.Services.AddScoped<ForgotPasswordService>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
 
@@ -150,39 +153,20 @@ builder.Services.AddRateLimiter(options =>
     //For OTP Resend
     options.AddPolicy("ResendOtpLimit", httpContext =>
     {
-        httpContext.Request.EnableBuffering(); // allow body reading
-        string email = "";
-
-        using (var reader = new StreamReader(httpContext.Request.Body, leaveOpen: true))
-        {
-            var body = reader.ReadToEnd();
-            httpContext.Request.Body.Position = 0;
-
-            if (!string.IsNullOrWhiteSpace(body))
-            {
-                using var json = JsonDocument.Parse(body);
-                if (json.RootElement.TryGetProperty("email", out var emailProp))
-                {
-                    email = emailProp.GetString() ?? "";
-                }
-            }
-        }
-
-        string key = string.IsNullOrWhiteSpace(email)
-            ? httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown"
-            : email.ToLower();
+        string key = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
 
         return RateLimitPartition.GetTokenBucketLimiter(
             key,
             _ => new TokenBucketRateLimiterOptions
             {
-                TokenLimit = 1,
-                TokensPerPeriod = 1,
-                ReplenishmentPeriod = TimeSpan.FromSeconds(60),
+                TokenLimit = 1,                   
+                TokensPerPeriod = 1,               
+                ReplenishmentPeriod = TimeSpan.FromSeconds(60), 
                 AutoReplenishment = true,
                 QueueLimit = 0
             });
     });
+
 
     options.OnRejected = async (context, token) =>
     {
@@ -247,7 +231,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 
-
+app.UseRateLimiter();
 app.UseAuthentication();
 app.UseAuthorization();
 

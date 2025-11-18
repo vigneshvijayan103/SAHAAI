@@ -9,7 +9,8 @@ namespace Sahaai.Application.Common
 {
     public interface IMailkitService
     {
-        Task SendOtpEmailAsync(string toEmail, string otp);
-      
+        Task SendOtpEmailAsync(string toEmail, string otp, string purpose);
+
+
     }
 }
