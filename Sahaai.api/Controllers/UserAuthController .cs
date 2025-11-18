@@ -106,25 +106,7 @@ namespace Sahaai.Api.Controllers
         }
 
 
-        [Authorize]
-        [HttpGet("Authorize")]
-
-        public async Task<IActionResult> MockApi()
-        {
-
-             return Ok("Token success");
-        }
-
-
-
-        [Authorize(Roles ="User")]
-        [HttpGet("auth")]
-
-        public async Task<IActionResult> UserAuth()
-        {
-
-            return Ok("Token success for user");
-        }
+       
 
 
 

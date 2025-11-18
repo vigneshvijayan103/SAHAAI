@@ -95,7 +95,7 @@ namespace Sahaai.Application.Features.Users.Services
         {
             
             var user= await _repo.ExistsAsync(email,null);
-        C:\SAHAAI\.gitignore
+      
 
             if (!user)
                 throw new KeyNotFoundException("Email not found");

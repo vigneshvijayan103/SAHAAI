@@ -50,6 +50,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<UserAuthService>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
+builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+builder.Services.AddScoped<UserProfileService>();
 
 
 
@@ -82,8 +84,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             OnMessageReceived = context =>
             {
-                Console.WriteLine("TOKEN RAW HEADER => " + context.Request.Headers["Authorization"]);
-                Console.WriteLine("TOKEN RECEIVED => " + context.Token);
+                //Console.WriteLine("TOKEN RAW HEADER => " + context.Request.Headers["Authorization"]);
+                //Console.WriteLine("TOKEN RECEIVED => " + context.Token);
                 return Task.CompletedTask;
             },
             OnAuthenticationFailed = context =>
