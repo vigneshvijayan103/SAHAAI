@@ -10048,11 +10048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
+      "projectUniqueName": "C:\\clone\\New folder\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
       "projectName": "Sahaai.Api",
-      "projectPath": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
+      "projectPath": "C:\\clone\\New folder\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
       "packagesPath": "C:\\Users\\vignesh vijayan\\.nuget\\packages\\",
-      "outputPath": "C:\\SAHAAI\\Sahaai.api\\obj\\",
+      "outputPath": "C:\\clone\\New folder\\SAHAAI\\Sahaai.api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -10073,11 +10073,11 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj": {
-              "projectPath": "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj"
+            "C:\\clone\\New folder\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj": {
+              "projectPath": "C:\\clone\\New folder\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj"
             },
-            "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj": {
-              "projectPath": "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj"
+            "C:\\clone\\New folder\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj": {
+              "projectPath": "C:\\clone\\New folder\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj"
             }
           }
         }

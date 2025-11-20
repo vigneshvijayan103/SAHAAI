@@ -38,7 +38,7 @@ namespace Sahaai.Api.Middleware
 
             context.Response.ContentType = "application/json";
 
-            vvar statusCode = ex switch
+            var statusCode = ex switch
             {
                 SecurityTokenException => StatusCodes.Status401Unauthorized,
                 UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
@@ -64,6 +64,7 @@ namespace Sahaai.Api.Middleware
             );
 
             await context.Response.WriteAsync(json);
+    
         }
     }
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Sahaai.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f11e37761e73789f4aa0ff15d67180b6aa7126f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Sahaai.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Sahaai.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

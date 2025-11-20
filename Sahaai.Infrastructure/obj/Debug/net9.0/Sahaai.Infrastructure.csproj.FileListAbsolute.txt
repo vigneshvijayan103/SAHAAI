@@ -18,3 +18,23 @@ C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.pdb
 C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.genruntimeconfig.cache
 C:\SAHAAI\sahaai.infrastructure\obj\Debug\net9.0\ref\Sahaai.Infrastructure.dll
 C:\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.sourcelink.json
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Infrastructure.deps.json
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Infrastructure.runtimeconfig.json
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Infrastructure.dll
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Infrastructure.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Application.dll
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Application.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\bin\Debug\net9.0\Sahaai.Domain.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.csproj.AssemblyReference.cache
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.AssemblyInfoInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.AssemblyInfo.cs
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.csproj.CoreCompileInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.sourcelink.json
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.I.2CA8CC1C.Up2Date
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.dll
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\refint\Sahaai.Infrastructure.dll
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\Sahaai.Infrastructure.genruntimeconfig.cache
+C:\clone\New folder\SAHAAI\Sahaai.Infrastructure\obj\Debug\net9.0\ref\Sahaai.Infrastructure.dll

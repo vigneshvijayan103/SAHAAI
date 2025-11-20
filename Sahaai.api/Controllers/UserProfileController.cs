@@ -89,7 +89,8 @@ namespace Sahaai.Api.Controllers
                 "Password changed successfully",
                 result
             ));
-        }
 
     }
 }
+}
+

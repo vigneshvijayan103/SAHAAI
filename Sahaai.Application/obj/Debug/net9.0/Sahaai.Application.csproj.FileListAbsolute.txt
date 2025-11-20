@@ -14,3 +14,19 @@ C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\refint\Sahaai.Application.dll
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.pdb
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\ref\Sahaai.Application.dll
 C:\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.sourcelink.json
+C:\clone\New folder\SAHAAI\Sahaai.Application\bin\Debug\net9.0\Sahaai.Application.deps.json
+C:\clone\New folder\SAHAAI\Sahaai.Application\bin\Debug\net9.0\Sahaai.Application.dll
+C:\clone\New folder\SAHAAI\Sahaai.Application\bin\Debug\net9.0\Sahaai.Application.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Application\bin\Debug\net9.0\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Application\bin\Debug\net9.0\Sahaai.Domain.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.csproj.AssemblyReference.cache
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.AssemblyInfoInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.AssemblyInfo.cs
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.csproj.CoreCompileInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.sourcelink.json
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.A.31305A18.Up2Date
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.dll
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\refint\Sahaai.Application.dll
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\Sahaai.Application.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Application\obj\Debug\net9.0\ref\Sahaai.Application.dll

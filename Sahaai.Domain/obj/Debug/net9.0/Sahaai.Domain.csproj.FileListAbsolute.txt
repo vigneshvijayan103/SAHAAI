@@ -9,3 +9,15 @@ C:\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.dll
 C:\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\refint\Sahaai.Domain.dll
 C:\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.pdb
 C:\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\ref\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Domain\bin\Debug\net9.0\Sahaai.Domain.deps.json
+C:\clone\New folder\SAHAAI\Sahaai.Domain\bin\Debug\net9.0\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Domain\bin\Debug\net9.0\Sahaai.Domain.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.AssemblyInfoInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.AssemblyInfo.cs
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.csproj.CoreCompileInputs.cache
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.sourcelink.json
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\refint\Sahaai.Domain.dll
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\Sahaai.Domain.pdb
+C:\clone\New folder\SAHAAI\Sahaai.Domain\obj\Debug\net9.0\ref\Sahaai.Domain.dll
