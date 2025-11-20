@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Sahaai.Application.Common;
 using Sahaai.Application.Features.Users.DTO.Auth;
-using Sahaai.Application.Features.Users.Services;
+using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Infrastructure.Services;
 
 namespace Sahaai.Api.Controllers
@@ -13,11 +13,13 @@ namespace Sahaai.Api.Controllers
     [ApiController]
     public class UserAuthController : ControllerBase
     {
-        private readonly UserAuthService _userAuthService;
+        private readonly IUserAuthService _userAuthService;
+        private readonly IForgotPasswordService _forgotPasswordService;
 
-        public UserAuthController(UserAuthService userAuthService)
+        public UserAuthController(IUserAuthService userAuthService, IForgotPasswordService forgotPasswordService)
         {
             _userAuthService = userAuthService;
+            _forgotPasswordService = forgotPasswordService;
         }
 
         //Register user
@@ -105,8 +107,49 @@ namespace Sahaai.Api.Controllers
 
         }
 
+        //forgot-password
+        [HttpPost("forgot/send-otp")]
+        public async Task<IActionResult> SendForgotPasswordOtp([FromBody] ForgotPasswordRequestDto dto)
+        {
+            await _forgotPasswordService.SendForgotPasswordOtpAsync(dto.Email);
 
-       
+            var response = new ApiResponse<string>(
+                200,
+                "OTP has been sent to your email for password reset.",
+                null
+            );
+
+            return Ok(response);
+        }
+
+        //verify-otp-and-reset-password
+
+        [HttpPost("forgot/reset-password")]
+        public async Task<IActionResult> ResetPasswordUsingOtp([FromBody] VerifyOtpAndResetDto dto)
+        {
+            bool success = await _forgotPasswordService.VerifyOtpAndResetPasswordAsync(dto);
+
+            if (!success)
+            {
+                var errorResponse = new ApiResponse<string>(
+                    400,
+                    "Invalid or expired OTP.",
+                    null
+                );
+
+                return BadRequest(errorResponse);
+            }
+
+            var response = new ApiResponse<string>(
+                200,
+                "Password has been reset successfully.",
+                null
+            );
+
+            return Ok(response);
+        }
+
+
 
 
 

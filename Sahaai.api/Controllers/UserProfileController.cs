@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Sahaai.Application.Features.Users.Services;
 using Sahaai.Application.Common;
 using Sahaai.Application.Features.Users.DTO.UserProfile;
-using Microsoft.AspNetCore.Authorization;
+using Sahaai.Application.Features.Users.Interfaces;
 
 namespace Sahaai.Api.Controllers
 {
@@ -11,9 +11,9 @@ namespace Sahaai.Api.Controllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
-        private readonly UserProfileService _service;
+        private readonly IUserProfileService _service;
 
-        public UserProfileController(UserProfileService service)
+        public UserProfileController(IUserProfileService service)
         {
             _service = service;
         }
@@ -26,6 +26,7 @@ namespace Sahaai.Api.Controllers
 
             int userId = int.Parse(User.FindFirst("userId")!.Value);
             var profile = await _service.GetProfileAsync(userId);
+
             if (profile == null)
             {
                 return NotFound(new ApiResponse<string>(
@@ -73,6 +74,22 @@ namespace Sahaai.Api.Controllers
             ));
         }
 
+        //update password
+        [Authorize(Roles = "User")]
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto dto)
+        {
+            int userId = int.Parse(User.FindFirst("userId")!.Value);
+
+            var result = await _service.ChangePasswordAsync(userId, dto);
+
+            return Ok(new ApiResponse<bool>
+            (
+                200,
+                "Password changed successfully",
+                result
+            ));
+        }
 
     }
 }

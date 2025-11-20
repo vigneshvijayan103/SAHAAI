@@ -1,5 +1,4 @@
-﻿using Sahaai.Application.Features.Users.DTO.UserProfile;
-using Sahaai.Domain.Entities;
+﻿using Sahaai.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,5 @@ namespace Sahaai.Application.Features.Users.Interfaces
         Task<User?> GetProfileAsync(int userId);
 
         Task UpdateUserAsync(User user);
-
     }
 }

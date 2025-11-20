@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sahaai.Application.Features.Users.DTO.UserProfile;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Domain.Entities;
 using Sahaai.Infrastructure.Data;
@@ -12,7 +11,6 @@ using System.Threading.Tasks;
 namespace Sahaai.Infrastructure.Repositories
 {
     public class UserProfileRepository:IUserProfileRepository
-
     {
         private readonly AppDbContext _db;
 
@@ -34,7 +32,7 @@ namespace Sahaai.Infrastructure.Repositories
         public async Task UpdateUserAsync(User user)
         {
             _db.Users.Update(user);
-            await  _db.SaveChangesAsync();
+            await _db.SaveChangesAsync();
         }
 
 
