@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Sahaai.Application.Common;
 using Sahaai.Application.Features.Users.DTO.Auth;
-using Sahaai.Application.Features.Users.Services;
+using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Infrastructure.Services;
 
 namespace Sahaai.Api.Controllers
@@ -13,10 +13,10 @@ namespace Sahaai.Api.Controllers
     [ApiController]
     public class UserAuthController : ControllerBase
     {
-        private readonly UserAuthService _userAuthService;
-        private readonly ForgotPasswordService _forgotPasswordService;
+        private readonly IUserAuthService _userAuthService;
+        private readonly IForgotPasswordService _forgotPasswordService;
 
-        public UserAuthController(UserAuthService userAuthService, ForgotPasswordService forgotPasswordService)
+        public UserAuthController(IUserAuthService userAuthService, IForgotPasswordService forgotPasswordService)
         {
             _userAuthService = userAuthService;
             _forgotPasswordService = forgotPasswordService;

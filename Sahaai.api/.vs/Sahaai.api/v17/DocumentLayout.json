@@ -3,20 +3,74 @@
   "WorkspaceRootPath": "C:\\SAHAAI\\Sahaai.api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\services\\userprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:controllers\\userprofilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\services\\userauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\services\\forgotpasswordservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\controllers\\userauthcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:controllers\\userauthcontroller .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\mailkitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\repositories\\userprofilerepository .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\services\\forgotpasswordservice .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iuserprofilerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\validators\\verifyotpandresetdtovalidator .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\dto\\userprofile\\changepassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iforgotpasswordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iuserauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\validators\\registeruserdtovalidator .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iuserprofileservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\dto\\userprofile\\userprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\dto\\userprofile\\updateuserprofiledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\otpservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\mailkitservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\dto\\auth\\verifyotpandresetdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -33,16 +87,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\validators\\verifyotpandresetdtovalidator .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\validators\\registeruserdtovalidator .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\dto\\auth\\resendotprequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -63,13 +107,7 @@
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\common\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\common\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\sahaai.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -77,13 +115,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\sahaai.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83752E49-F42D-428E-A963-EBDDBC0A9543}|..\\Sahaai.Application\\Sahaai.Application.csproj|c:\\sahaai\\sahaai.application\\features\\users\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|c:\\sahaai\\sahaai.api\\middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030F6647-99FA-422A-80CE-5723B0A11C6A}|Sahaai.Api.csproj|solutionrelative:middleware\\globalexceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F88E9575-0A2E-48DA-BC86-7201548C805D}|..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj|c:\\sahaai\\sahaai.infrastructure\\configurations\\loginconfiguration .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -134,11 +165,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 67,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 41,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Domain\\Entities\\User.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Domain\\Entities\\User.cs",
@@ -151,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 39,
               "Title": ".env",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\.env",
               "RelativeDocumentMoniker": ".env",
@@ -172,119 +203,106 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VerifyOtpAndResetDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T06:37:35.779Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OtpService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\OtpService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\OtpService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\OtpService.cs",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\OtpService.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAiwD4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T06:28:28.423Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MailkitService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T12:14:25.759Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UserAuthController .cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Controllers\\UserAuthController .cs",
               "RelativeDocumentMoniker": "Controllers\\UserAuthController .cs",
               "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Controllers\\UserAuthController .cs",
               "RelativeToolTip": "Controllers\\UserAuthController .cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T05:06:19.52Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserAuthService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
-              "ViewState": "AgIAAFYAAAAAAAAAAAA3wGkAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T05:06:45.979Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ForgotPasswordService .cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\ForgotPasswordService .cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Services\\ForgotPasswordService .cs",
               "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\ForgotPasswordService .cs",
               "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Services\\ForgotPasswordService .cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAgwD0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T06:32:01.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "IOtpService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\IOtpService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\IOtpService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\IOtpService.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Common\\IOtpService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UserAuthService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Services\\UserAuthService.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAowDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T06:29:41.329Z",
+              "WhenOpened": "2025-11-13T05:06:45.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserProfileService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserProfileService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Services\\UserProfileService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Services\\UserProfileService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Services\\UserProfileService.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwD0AAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T03:50:29.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserProfileController.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Controllers\\UserProfileController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserProfileController.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Controllers\\UserProfileController.cs",
+              "RelativeToolTip": "Controllers\\UserProfileController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAmwFMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T03:55:23.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GlobalExceptionMiddleware.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Middleware\\GlobalExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "Middleware\\GlobalExceptionMiddleware.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Middleware\\GlobalExceptionMiddleware.cs",
+              "RelativeToolTip": "Middleware\\GlobalExceptionMiddleware.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAwwC0AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T10:31:19.592Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\AuthService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\AuthService.cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\AuthService.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T09:10:50.209Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "AppDbContext .cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAkwBIAAAAwAAAAAAAAAA==",
+              "Title": "UserProfileRepository .cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserProfileRepository .cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Repositories\\UserProfileRepository .cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserProfileRepository .cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Repositories\\UserProfileRepository .cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T09:20:13.84Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-11-13T06:29:07.867Z",
+              "WhenOpened": "2025-11-20T03:52:21.853Z",
               "EditorCaption": ""
             },
             {
@@ -295,22 +313,9 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADQAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAkwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-13T05:08:57.736Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Sahaai.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T12:22:31.102Z",
               "EditorCaption": ""
             },
             {
@@ -321,14 +326,79 @@
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Validators\\VerifyOtpAndResetDtoValidator .cs",
               "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Validators\\VerifyOtpAndResetDtoValidator .cs",
               "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Validators\\VerifyOtpAndResetDtoValidator .cs",
-              "ViewState": "AgIAABMAAAAAAAAAAADwvyUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAswBsAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T07:08:17.631Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAzwAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T05:11:36.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IUserProfileRepository.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileRepository.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileRepository.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileRepository.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T03:53:52.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "ChangePasswordDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\ChangePasswordDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\ChangePasswordDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\ChangePasswordDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\ChangePasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T08:53:18.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IForgotPasswordService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IForgotPasswordService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IForgotPasswordService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IForgotPasswordService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IForgotPasswordService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T08:51:24.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IUserAuthService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserAuthService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserAuthService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserAuthService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T08:47:58.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "RegisterUserDtoValidator .cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Validators\\RegisterUserDtoValidator .cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Validators\\RegisterUserDtoValidator .cs",
@@ -341,148 +411,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ResendOtpRequestDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "DocumentIndex": 16,
+              "Title": "IUserProfileService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserProfileService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T12:19:57.597Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ForgotPasswordRequestDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T07:04:38.767Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UserLoginDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T07:32:25.678Z",
+              "WhenOpened": "2025-11-20T08:46:22.322Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "UserRegisterDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "Title": "UserProfileDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UserProfileDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UserProfileDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UserProfileDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T06:38:07.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "VerifyOtpDto.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T06:38:04.408Z",
+              "WhenOpened": "2025-11-20T04:05:13.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\ApiResponse.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\ApiResponse.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Common\\ApiResponse.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Title": "UpdateUserProfileDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UpdateUserProfileDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UpdateUserProfileDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UpdateUserProfileDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\UserProfile\\UpdateUserProfileDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T09:51:12.579Z",
+              "WhenOpened": "2025-11-20T04:04:38.669Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAYwAkAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T05:11:36.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\IAuthService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\IAuthService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\IAuthService.cs",
-              "RelativeToolTip": "..\\Sahaai.Application\\Common\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T09:10:18.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\AuthService.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\AuthService.cs",
-              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\AuthService.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwEUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T09:10:50.209Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Sahaai.Api.csproj",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
-              "RelativeDocumentMoniker": "Sahaai.Api.csproj",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
-              "RelativeToolTip": "Sahaai.Api.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-13T05:31:53.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "Sahaai.Application.csproj",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj",
-              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Sahaai.Application.csproj",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj",
-              "RelativeToolTip": "..\\Sahaai.Application\\Sahaai.Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-11-17T13:43:35.741Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Interfaces\\IUserRepository.cs",
@@ -495,19 +463,200 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "GlobalExceptionMiddleware.cs",
-              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Middleware\\GlobalExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "Middleware\\GlobalExceptionMiddleware.cs",
-              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Middleware\\GlobalExceptionMiddleware.cs",
-              "RelativeToolTip": "Middleware\\GlobalExceptionMiddleware.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADwvx8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 20,
+              "Title": "OtpService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\OtpService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\OtpService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\OtpService.cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\OtpService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T10:31:19.592Z"
+              "WhenOpened": "2025-11-13T06:28:28.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MailkitService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Services\\MailkitService.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAowEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T12:14:25.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "VerifyOtpAndResetDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpAndResetDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T06:37:35.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IOtpService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\IOtpService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\IOtpService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\IOtpService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Common\\IOtpService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T06:29:41.329Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AppDbContext .cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Data\\AppDbContext .cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAkwBIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T09:20:13.84Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 26,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-13T06:29:07.867Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Sahaai.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
+              "RelativeToolTip": "..\\Sahaai.Infrastructure\\Sahaai.Infrastructure.csproj",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-17T12:22:31.102Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "ResendOtpRequestDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ResendOtpRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T12:19:57.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ForgotPasswordRequestDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\ForgotPasswordRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T07:04:38.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "UserLoginDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserLoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T07:32:25.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "UserRegisterDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\UserRegisterDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T06:38:07.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "VerifyOtpDto.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Features\\Users\\DTO\\Auth\\VerifyOtpDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T06:38:04.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\ApiResponse.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\ApiResponse.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Common\\ApiResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T09:51:12.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\IAuthService.cs",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\IAuthService.cs",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Common\\IAuthService.cs",
+              "RelativeToolTip": "..\\Sahaai.Application\\Common\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T09:10:18.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Sahaai.Api.csproj",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
+              "RelativeDocumentMoniker": "Sahaai.Api.csproj",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
+              "RelativeToolTip": "Sahaai.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-13T05:31:53.688Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Sahaai.Application.csproj",
+              "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj",
+              "RelativeDocumentMoniker": "..\\Sahaai.Application\\Sahaai.Application.csproj",
+              "ToolTip": "C:\\SAHAAI\\Sahaai.Application\\Sahaai.Application.csproj",
+              "RelativeToolTip": "..\\Sahaai.Application\\Sahaai.Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-17T13:43:35.741Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
               "Title": "LoginConfiguration .cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Configurations\\LoginConfiguration .cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Configurations\\LoginConfiguration .cs",
@@ -519,7 +668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 42,
               "Title": "WorkerDetails.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Domain\\Entities\\WorkerDetails.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Domain\\Entities\\WorkerDetails.cs",
@@ -531,7 +680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 38,
               "Title": "20251113052217_RenameUserTable.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Migrations\\20251113052217_RenameUserTable.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Migrations\\20251113052217_RenameUserTable.cs",
@@ -543,7 +692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 37,
               "Title": "20251113051611_InitialCreate.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Migrations\\20251113051611_InitialCreate.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Migrations\\20251113051611_InitialCreate.cs",
@@ -555,7 +704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 43,
               "Title": "UserConfiguration.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Infrastructure\\Configurations\\UserConfiguration.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Infrastructure\\Configurations\\UserConfiguration.cs",
@@ -567,7 +716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 44,
               "Title": "IMailkitService.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Common\\IMailkitService.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Common\\IMailkitService.cs",
@@ -575,12 +724,11 @@
               "RelativeToolTip": "..\\Sahaai.Application\\Common\\IMailkitService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-13T06:29:37.687Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T06:29:37.687Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 40,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.api\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -592,7 +740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 45,
               "Title": "Login.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Domain\\Entities\\Login.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Domain\\Entities\\Login.cs",
@@ -604,7 +752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 46,
               "Title": "UserProfile.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Application\\Features\\Users\\Mapping\\UserProfile.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Application\\Features\\Users\\Mapping\\UserProfile.cs",
@@ -616,7 +764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 47,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Domain\\Entities\\BaseEntity.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Domain\\Entities\\BaseEntity.cs",
@@ -628,7 +776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 48,
               "Title": "UserRole.cs",
               "DocumentMoniker": "C:\\SAHAAI\\Sahaai.Domain\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "..\\Sahaai.Domain\\Enums\\UserRole.cs",

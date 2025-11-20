@@ -49,8 +49,10 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>()
 //Dependency Injection
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<UserAuthService>();
-builder.Services.AddScoped<ForgotPasswordService>();
+builder.Services.AddScoped<IUserAuthService, UserAuthService>();
+builder.Services.AddScoped<IForgotPasswordService, ForgotPasswordService>();
+builder.Services.AddScoped<IUserProfileService,UserProfileService>();
+builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
 

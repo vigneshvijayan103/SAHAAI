@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Application.Features.Users.Services
 {
-    public class UserAuthService
+    public class UserAuthService:IUserAuthService
     {
         private readonly IUserRepository _repo;
         private readonly IAuthService _auth;
@@ -149,7 +149,7 @@ namespace Sahaai.Application.Features.Users.Services
             return token;
         }
 
-        //forgot password
+       
 
 
 

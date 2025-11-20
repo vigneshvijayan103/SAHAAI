@@ -11,7 +11,7 @@ using static System.Net.WebRequestMethods;
 
 namespace Sahaai.Application.Features.Users.Services
 {
-    public class ForgotPasswordService
+    public class ForgotPasswordService:IForgotPasswordService
     {
         private readonly IUserRepository _repo;
         private readonly IOtpService _otpService;

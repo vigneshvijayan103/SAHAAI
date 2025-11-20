@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Data;
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -37,14 +38,17 @@ namespace Sahaai.Api.Middleware
 
             context.Response.ContentType = "application/json";
 
-            var statusCode = ex switch
+            vvar statusCode = ex switch
             {
                 SecurityTokenException => StatusCodes.Status401Unauthorized,
                 UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
                 ArgumentException => StatusCodes.Status400BadRequest,
+                InvalidOperationException => StatusCodes.Status400BadRequest,
                 KeyNotFoundException => StatusCodes.Status404NotFound,
                 _ => StatusCodes.Status500InternalServerError
             };
+
+
 
             context.Response.StatusCode = statusCode;
 
