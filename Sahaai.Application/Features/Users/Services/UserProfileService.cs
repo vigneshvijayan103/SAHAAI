@@ -12,19 +12,19 @@ namespace Sahaai.Application.Features.Users.Services
 {
     public class UserProfileService: IUserProfileService
     {
-        private readonly IUserProfileRepository _repo;
+        private readonly IUserProfileRepository _userProfileRepository;
         private readonly IAuthService _authService;
 
         public UserProfileService(IUserProfileRepository userProfileRepository,IAuthService authService)
         {
-            _repo = userProfileRepository;
+            _userProfileRepository = userProfileRepository;
             _authService = authService;
         }
 
         //Get user profile by userId
         public async Task<UserProfileDto?> GetProfileAsync(int userId)
         {
-            var user = await _repo.GetProfileAsync(userId);
+            var user = await _userProfileRepository.GetProfileAsync(userId);
 
             if (user == null)
                 return null;
@@ -44,7 +44,7 @@ namespace Sahaai.Application.Features.Users.Services
         public async Task<User?> UpdateProfileAsync(int userId, UpdateUserProfileDto dto)
         {
 
-            var user = await _repo.GetProfileAsync(userId);
+            var user = await _userProfileRepository.GetProfileAsync(userId);
             if (user == null) return null;
 
             user.FullName = dto.FullName;
@@ -85,7 +85,7 @@ namespace Sahaai.Application.Features.Users.Services
             user.ModifiedOn = DateTime.UtcNow;
             user.ModifiedBy = "User";
 
-            await _repo.UpdateUserAsync(user);
+            await _userProfileRepository.UpdateUserAsync(user);
 
             return true;
 

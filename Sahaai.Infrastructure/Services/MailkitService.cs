@@ -12,7 +12,7 @@ using MailKit.Net.Smtp;
 
 namespace Sahaai.Infrastructure.Services
 {
-    public class MailkitService:IMailkitService
+    public class MailkitService : IMailkitService
     {
         private readonly IConfiguration _config;
 
@@ -21,7 +21,7 @@ namespace Sahaai.Infrastructure.Services
             _config = config;
         }
 
-        public async Task SendOtpEmailAsync(string toEmail, string otp)
+        public async Task SendOtpEmailAsync(string toEmail, string otp, string purpose)
         {
             var smtpServer = _config["EmailSettings:SmtpServer"];
             var port = int.Parse(_config["EmailSettings:Port"]);
@@ -29,14 +29,35 @@ namespace Sahaai.Infrastructure.Services
             var senderName = _config["EmailSettings:SenderName"];
             var password = _config["EmailSettings:Password"];
 
+            string subject;
+            string body;
+
+            switch (purpose.ToLower())
+            {
+                case "register":
+                    subject = "Verify Your Email - OTP";
+                    body = $"Your verification OTP is <b>{otp}</b>. It expires in 5 minutes.";
+                    break;
+
+                case "forgot":
+                    subject = "Reset Your Password - OTP";
+                    body = $"Your password reset OTP is <b>{otp}</b>. It expires in 5 minutes.";
+                    break;
+
+                default:
+                    subject = "Your OTP Code";
+                    body = $"Your OTP is <b>{otp}</b>.";
+                    break;
+            }
+
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(senderName, senderEmail));
             message.To.Add(MailboxAddress.Parse(toEmail));
-            message.Subject = "Your OTP";
+            message.Subject = subject;
 
             message.Body = new TextPart("html")
             {
-                Text = $"Your OTP is <b>{otp}</b>"
+                Text = body
             };
 
             using var smtp = new SmtpClient();
@@ -45,5 +66,6 @@ namespace Sahaai.Infrastructure.Services
             await smtp.SendAsync(message);
             await smtp.DisconnectAsync(true);
         }
+
     }
 }
