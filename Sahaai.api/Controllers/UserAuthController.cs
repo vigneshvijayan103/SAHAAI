@@ -23,7 +23,7 @@ namespace Sahaai.Api.Controllers
         }
 
         //Register user
-        [HttpPost("register")]
+        [HttpPost("register")]  
         public async Task<IActionResult> Register([FromBody] UserRegisterDto dto)
         {
             var result = await _userAuthService.RegisterUserAsync(dto);
