@@ -22,6 +22,8 @@ namespace Sahaai.Infrastructure.Services
         {
             var otp = new Random().Next(100000, 999999).ToString();
 
+            
+            string redisKey = $"otp:{purpose}:{email}";
 
             string redisKey = $"otp:{purpose}:{email}";
 
@@ -30,7 +32,7 @@ namespace Sahaai.Infrastructure.Services
                 otp,
                 new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
                 });
 
             return otp;
@@ -46,7 +48,7 @@ namespace Sahaai.Infrastructure.Services
             var storedOtp = await _cache.GetStringAsync(redisKey);
 
             if (storedOtp == null)
-                return false;
+                return false; 
 
             if (storedOtp == otp)
             {
@@ -54,7 +56,7 @@ namespace Sahaai.Infrastructure.Services
                 return true;
             }
 
-            return false;
+            return false; 
         }
 
 

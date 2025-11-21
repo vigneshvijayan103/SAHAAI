@@ -38,7 +38,7 @@ namespace Sahaai.Api.Middleware
 
             context.Response.ContentType = "application/json";
 
-            var statusCode = ex switch
+            vvar statusCode = ex switch
             {
                 SecurityTokenException => StatusCodes.Status401Unauthorized,
                 UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
