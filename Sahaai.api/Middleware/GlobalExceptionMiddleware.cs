@@ -29,6 +29,7 @@ namespace Sahaai.Api.Middleware
             catch (Exception ex)
             {
                 await HandleExceptionAsync(context, ex);
+
             }
         }
 

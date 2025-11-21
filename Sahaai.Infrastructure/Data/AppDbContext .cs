@@ -20,6 +20,8 @@ namespace Sahaai.Infrastructure.Data
 
         public DbSet<WorkerDetails> WorkerDetails { get; set; }
 
+        public DbSet<Service> Service { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

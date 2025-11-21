@@ -28,4 +28,8 @@
     <ProjectReference Include="..\Sahaai.Infrastructure\Sahaai.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\services\" />
+  </ItemGroup>
+
 </Project>

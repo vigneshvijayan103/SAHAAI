@@ -12,6 +12,8 @@ using Sahaai.Application.Common;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Application.Features.Users.Services;
 using Sahaai.Application.Features.Users.Validators;
+using Sahaai.Application.Features.Services.Interfaces;
+using Sahaai.Application.Features.Services.Services;
 using Sahaai.Infrastructure.Data;
 using Sahaai.Infrastructure.Repositories;
 using Sahaai.Infrastructure.Services;
@@ -53,8 +55,12 @@ builder.Services.AddScoped<IUserAuthService, UserAuthService>();
 builder.Services.AddScoped<IForgotPasswordService, ForgotPasswordService>();
 builder.Services.AddScoped<IUserProfileService,UserProfileService>();
 builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
+builder.Services.AddScoped<IFileService, FileService>();
+
 
 
 
@@ -87,15 +93,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             OnMessageReceived = context =>
             {
-                Console.WriteLine("TOKEN RAW HEADER => " + context.Request.Headers["Authorization"]);
-                Console.WriteLine("TOKEN RECEIVED => " + context.Token);
+                
                 return Task.CompletedTask;
             },
             OnAuthenticationFailed = context =>
             {
-                Console.WriteLine("JWT AUTH FAILED: " + context.Exception?.Message); 
-                if (context.Exception?.InnerException != null)
-                    Console.WriteLine("Inner: " + context.Exception.InnerException.Message);
+                
+                
                 return Task.CompletedTask;
             }
         };
@@ -132,6 +136,7 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+
 
 
 
@@ -230,6 +235,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();
 app.UseHttpsRedirection();
 app.UseMiddleware<GlobalExceptionMiddleware>();
 
