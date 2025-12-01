@@ -10,15 +10,15 @@ namespace Sahaai.Application.Features.Users.Interfaces
 {
     public interface IUserRepository
     {
+
         Task<bool> ExistsAsync(string? email, string? username);
 
         Task<Login> GetUserNameAsync(string UserName);
         Task<User?> GetUserByEmailAsync(string email);
-        Task<User> AddUserAsync(User user); 
+        Task<User> AddUserAsync(User user);
 
-        Task VerifyUserEmailAsync(string email);
+        Task<bool> VerifyUserEmailAsync(string email);
         Task UpdateLoginAsync(Login login);
-
 
 
     }

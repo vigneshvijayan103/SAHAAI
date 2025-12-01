@@ -14,17 +14,17 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Infrastructure.Repositories
 {
-    public class UserRepository:IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppDbContext _db;
-       
-     
+
+
 
         public UserRepository(AppDbContext db)
         {
             _db = db;
-           
-            
+
+
         }
 
 
@@ -53,37 +53,44 @@ namespace Sahaai.Infrastructure.Repositories
         public async Task<User?> GetUserByEmailAsync(string email)
         {
             return await _db.Users
-                .Include(u => u.Login)   
+                .Include(u => u.Login)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
 
 
         //Register User
-        public async  Task<User> AddUserAsync(User user)
+        public async Task<User> AddUserAsync(User user)
         {
             await _db.Users.AddAsync(user);
 
-            await _db.SaveChangesAsync(); 
+            await _db.SaveChangesAsync();
 
             return user;
         }
 
         //Verify User Email
-        public async Task VerifyUserEmailAsync(string email)
+        public async Task<bool> VerifyUserEmailAsync(string email)
         {
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Email == email);
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            var normalized = email.Trim().ToLower();
+
+            var user = await _db.Users
+                .FirstOrDefaultAsync(u => u.Email.ToLower() == normalized);
+
 
             if (user == null)
-                return;
+                return false;
 
             user.IsEmailVerified = true;
             user.EmailVerifiedAt = DateTime.Now;
-            user.ModifiedOn = DateTime.Now;
-            user.ModifiedBy = "User";
 
             await _db.SaveChangesAsync();
+            return true;
         }
+
 
         //update db after Login
         public async Task UpdateLoginAsync(Login login)

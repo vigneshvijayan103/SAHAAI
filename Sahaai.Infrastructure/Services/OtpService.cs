@@ -9,7 +9,7 @@ using Microsoft.Extensions.Caching.Distributed;
 
 namespace Sahaai.Infrastructure.Services
 {
-    public class OtpService : IOtpService
+    public class OtpService:IOtpService
     {
         private readonly IDistributedCache _cache;
         public OtpService(IDistributedCache cache)
@@ -25,14 +25,12 @@ namespace Sahaai.Infrastructure.Services
             
             string redisKey = $"otp:{purpose}:{email}";
 
-            string redisKey = $"otp:{purpose}:{email}";
-
             await _cache.SetStringAsync(
                 redisKey,
                 otp,
                 new DistributedCacheEntryOptions
                 {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(1)
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)  
                 });
 
             return otp;
@@ -52,7 +50,7 @@ namespace Sahaai.Infrastructure.Services
 
             if (storedOtp == otp)
             {
-                await _cache.RemoveAsync(redisKey);
+                await _cache.RemoveAsync(redisKey); 
                 return true;
             }
 

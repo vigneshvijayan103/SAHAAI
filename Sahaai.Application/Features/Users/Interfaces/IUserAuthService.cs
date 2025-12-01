@@ -9,10 +9,10 @@ namespace Sahaai.Application.Features.Users.Interfaces
 {
     public interface IUserAuthService
     {
-        Task<String> RegisterUserAsync(UserRegisterDto dto);
+        Task<RegisterResponseDto> RegisterUserAsync(UserRegisterDto dto);
         Task ResendOtpAsync(string email);
-        Task<bool> VerifyOtpAsync(string email, string otp);
-        Task<string> LoginAsync(UserLoginDto dto);
+        Task<OtpVerifyResult> VerifyOtpAsync(int userId, string otp);
+        Task<LoginResponseDto> LoginAsync(UserLoginDto dto);
 
 
 

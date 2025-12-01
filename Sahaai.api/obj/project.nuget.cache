@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "m1/VdUzugH8=",
+  "dgSpecHash": "9+dwfCK9gzw=",
   "success": true,
-  "projectFilePath": "C:\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
+  "projectFilePath": "C:\\Sahaai1\\SAHAAI\\Sahaai.api\\Sahaai.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vignesh vijayan\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\vignesh vijayan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

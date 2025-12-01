@@ -23,27 +23,27 @@ namespace Sahaai.Api.Controllers
         }
 
         //Register user
-        [HttpPost("register")]  
+        [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserRegisterDto dto)
         {
             var result = await _userAuthService.RegisterUserAsync(dto);
 
 
-            if (result == "Email already exists" || result == "Username already exists")
+            if (result.UserId == 0)
             {
-                return BadRequest(new ApiResponse<string>(
+                return BadRequest(new ApiResponse<object>(
                     400,
-                    result,
+                    result.Message,
                     null
                 ));
             }
 
 
-            return Ok(new ApiResponse<string>(
-                200,
-                result,
-                null
-            ));
+            return Ok(new ApiResponse<object>(
+                        200,
+                        result.Message,
+                        new { userId = result.UserId }
+                    ));
         }
 
         //verify-otp
@@ -51,22 +51,21 @@ namespace Sahaai.Api.Controllers
         [HttpPost("verify-otp")]
         public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpDto dto)
         {
-            if (string.IsNullOrWhiteSpace(dto.Email) || string.IsNullOrWhiteSpace(dto.Otp))
+            if (dto.Id <= 0 || string.IsNullOrWhiteSpace(dto.Otp))
             {
                 return BadRequest(new ApiResponse<string>(
                     400,
-                    "Email and OTP are required"
+                    "UserId and OTP are required"
                 ));
             }
 
+            var result = await _userAuthService.VerifyOtpAsync(dto.Id, dto.Otp);
 
-            var result = await _userAuthService.VerifyOtpAsync(dto.Email, dto.Otp);
-
-            if (!result)
+            if (!result.Success)
             {
                 return BadRequest(new ApiResponse<string>(
-                    400,
-                    "Invalid or expired OTP"
+                    result.StatusCode,
+                    result.Message
                 ));
             }
 
@@ -75,7 +74,6 @@ namespace Sahaai.Api.Controllers
                 "Email verified successfully"
             ));
         }
-
 
 
         //resend-otp
@@ -101,9 +99,13 @@ namespace Sahaai.Api.Controllers
         public async Task<IActionResult> Login([FromBody] UserLoginDto dto)
         {
 
-            var token = await _userAuthService.LoginAsync(dto);
+            var response = await _userAuthService.LoginAsync(dto);
 
-            return Ok(new ApiResponse<string>(200, "Login successful", token));
+            return Ok(new ApiResponse<LoginResponseDto>(
+                200,
+                "Login successful",
+                response
+            ));
 
         }
 

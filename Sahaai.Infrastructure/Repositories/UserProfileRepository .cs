@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Infrastructure.Repositories
 {
-    public class UserProfileRepository:IUserProfileRepository
+    public class UserProfileRepository : IUserProfileRepository
     {
         private readonly AppDbContext _db;
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj": {}
+    "C:\\Sahaai1\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj": {}
   },
   "projects": {
-    "C:\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj": {
+    "C:\\Sahaai1\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj",
+        "projectUniqueName": "C:\\Sahaai1\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj",
         "projectName": "Sahaai.Domain",
-        "projectPath": "C:\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj",
+        "projectPath": "C:\\Sahaai1\\SAHAAI\\Sahaai.Domain\\Sahaai.Domain.csproj",
         "packagesPath": "C:\\Users\\vignesh vijayan\\.nuget\\packages\\",
-        "outputPath": "C:\\SAHAAI\\Sahaai.Domain\\obj\\",
+        "outputPath": "C:\\Sahaai1\\SAHAAI\\Sahaai.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

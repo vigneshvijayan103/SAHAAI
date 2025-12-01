@@ -20,6 +20,8 @@ using Sahaai.Infrastructure.Services;
 using System.Text;
 using System.Text.Json;
 using System.Threading.RateLimiting;
+using Sahaai.Application.Features.Locations.Interfaces;
+using Sahaai.Application.Features.Locations.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();
@@ -49,17 +51,19 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>()
 
 
 //Dependency Injection
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserAuthService, UserAuthService>();
 builder.Services.AddScoped<IForgotPasswordService, ForgotPasswordService>();
 builder.Services.AddScoped<IUserProfileService,UserProfileService>();
 builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
-builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
-builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
+builder.Services.AddScoped<ILocationRepository, LocationRepository>();
+builder.Services.AddScoped<IUserLocationService, UserLocationService>();
+builder.Services.AddScoped<IServiceManager, ServiceManager>();
+builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddSignalR();
 
 
 
