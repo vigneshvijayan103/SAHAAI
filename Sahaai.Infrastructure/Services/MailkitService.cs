@@ -12,7 +12,7 @@ using MailKit.Net.Smtp;
 
 namespace Sahaai.Infrastructure.Services
 {
-    public class MailkitService : IMailkitService
+    public class MailkitService:IMailkitService
     {
         private readonly IConfiguration _config;
 

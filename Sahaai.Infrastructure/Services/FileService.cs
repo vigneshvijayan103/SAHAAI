@@ -31,6 +31,7 @@ namespace Sahaai.Infrastructure.Services
                 Directory.CreateDirectory(folderPath);
 
             string fileName = $"{Guid.NewGuid()}_{file.FileName}";
+
             string fullPath = Path.Combine(folderPath, fileName);
 
             using (var stream = new FileStream(fullPath, FileMode.Create))

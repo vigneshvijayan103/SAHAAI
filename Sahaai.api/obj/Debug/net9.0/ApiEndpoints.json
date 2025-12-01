@@ -200,6 +200,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Sahaai.Api.Controllers.UserLocationController",
+    "Method": "GetLocationHistory",
+    "RelativePath": "api/UserLocation/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sahaai.Api.Controllers.UserLocationController",
+    "Method": "GetLatestLocation",
+    "RelativePath": "api/UserLocation/latest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Sahaai.Api.Controllers.UserLocationController",
+    "Method": "UpdateLocation",
+    "RelativePath": "api/UserLocation/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Sahaai.Application.Features.Locations.DTO.UpdateLocationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Sahaai.Api.Controllers.UserProfileController",
     "Method": "ChangePassword",
     "RelativePath": "api/UserProfile/change-password",

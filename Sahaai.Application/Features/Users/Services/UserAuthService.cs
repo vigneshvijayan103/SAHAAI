@@ -15,9 +15,10 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Application.Features.Users.Services
 {
-    public class UserAuthService:IUserAuthService
+    public class UserAuthService : IUserAuthService
     {
         private readonly IUserRepository _repo;
+        private readonly IUserProfileRepository _userProfileRepo;
         private readonly IAuthService _auth;
         private readonly IMapper _mapper;
         private readonly IAuthService _authService;
@@ -25,6 +26,7 @@ namespace Sahaai.Application.Features.Users.Services
         private readonly IMailkitService _mailkitService;
 
         public UserAuthService(IUserRepository repo,
+            IUserProfileRepository userProfileRepo,
                                 IAuthService auth,
                                 IMapper mapper,
                                 IAuthService authService,
@@ -38,20 +40,33 @@ namespace Sahaai.Application.Features.Users.Services
             _authService = authService;
             _otpService = otpService;
             _mailkitService = mailkitService;
+            _userProfileRepo = userProfileRepo;
+
         }
 
 
 
         //Register User 
-        public async Task<String> RegisterUserAsync(UserRegisterDto dto)
+        public async Task<RegisterResponseDto> RegisterUserAsync(UserRegisterDto dto)
+
         {
-
             if (await _repo.ExistsAsync(dto.Email, null))
-                return "Email already exists";
-
+            {
+                return new RegisterResponseDto
+                {
+                    UserId = 0,
+                    Message = "Email already exists"
+                };
+            }
 
             if (await _repo.ExistsAsync(null, dto.Username))
-                return "Username already exists";
+            {
+                return new RegisterResponseDto
+                {
+                    UserId = 0,
+                    Message = "Username already exists"
+                };
+            }
 
             _auth.CreatePasswordHash(dto.Password, out byte[] hash, out byte[] salt);
 
@@ -79,7 +94,11 @@ namespace Sahaai.Application.Features.Users.Services
             //send otp to email
             await _mailkitService.SendOtpEmailAsync(dto.Email, otp, "register");
 
-            return "Registered successfully. OTP sent to your email";
+            return new RegisterResponseDto
+            {
+                UserId = user.Id,
+                Message = "Registered successfully. OTP sent to your email"
+            };
 
         }
 
@@ -101,31 +120,85 @@ namespace Sahaai.Application.Features.Users.Services
 
         //verify otp
 
-        public async Task<bool> VerifyOtpAsync(string email, string otp)
+        public async Task<OtpVerifyResult> VerifyOtpAsync(int userId, string otp)
         {
-            var isValid = await _otpService.VerifyOtpAsync(email, "register", otp);
-            if (!isValid)
-                return false;
 
-
-            await _repo.VerifyUserEmailAsync(email);
-
-
-
-            return true;
-        }
-
-        //login user
-        public async Task<string> LoginAsync(UserLoginDto dto)
-        {
-            var user = await _repo.GetUserNameAsync(dto.UserName);
-
+            var user = await _userProfileRepo.GetProfileAsync(userId);
 
             if (user == null)
+            {
+                return new OtpVerifyResult
+                {
+                    Success = false,
+                    StatusCode = 404,
+                    Message = "User not found"
+                };
+            }
+
+
+            if (string.IsNullOrWhiteSpace(user.Email))
+            {
+                return new OtpVerifyResult
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = "User email not found"
+                };
+            }
+
+
+            var email = user.Email.Trim().ToLower();
+
+            // Verify OTP
+            var isValidOtp = await _otpService.VerifyOtpAsync(email, "register", otp);
+            if (!isValidOtp)
+            {
+                return new OtpVerifyResult
+                {
+                    Success = false,
+                    StatusCode = 400,
+                    Message = "Invalid or expired OTP"
+                };
+            }
+
+            // Verify user email in DB
+            var verificationSuccess = await _repo.VerifyUserEmailAsync(email);
+
+            if (!verificationSuccess)
+            {
+                return new OtpVerifyResult
+                {
+                    Success = false,
+                    StatusCode = 500,
+                    Message = "Failed to update email verification"
+                };
+            }
+
+            return new OtpVerifyResult
+            {
+                Success = true,
+                StatusCode = 200,
+                Message = "Email verified successfully"
+            };
+        }
+
+
+        //login user
+        public async Task<LoginResponseDto> LoginAsync(UserLoginDto dto)
+        {
+            var login = await _repo.GetUserNameAsync(dto.UserName);
+
+
+            if (login == null)
                 throw new UnauthorizedAccessException("Invalid username");
 
-            var storedHash = Convert.FromBase64String(user.PasswordHash);
-            var storedSalt = Convert.FromBase64String(user.PasswordSalt);
+            var user = login.User;
+
+            if (!user.IsEmailVerified)
+                throw new UnauthorizedAccessException("Please verify your email first");
+
+            var storedHash = Convert.FromBase64String(login.PasswordHash);
+            var storedSalt = Convert.FromBase64String(login.PasswordSalt);
 
 
             bool isPasswordValid = _authService.VerifyPasswordHash(dto.Password, storedHash, storedSalt);
@@ -136,20 +209,27 @@ namespace Sahaai.Application.Features.Users.Services
 
             //generating token
             var token = _authService.GenerateToken(
-                user.UserId.ToString(),
-                user.User.Role.ToString(),
-                user.Username
+                user.Id.ToString(),
+                user.Role.ToString(),
+               login.Username
                );
 
             //update last login
-            user.LastLoginOn = DateTime.Now;
+            login.LastLoginOn = DateTime.Now;
 
-            await _repo.UpdateLoginAsync(user);
+            await _repo.UpdateLoginAsync(login);
 
-            return token;
+            return new LoginResponseDto
+            {
+                UserId = user.Id,
+                UserName = login.Username,
+                Email = user.Email,
+                Role = user.Role.ToString(),
+                Token = token
+            };
         }
 
-       
+
 
 
 
@@ -159,3 +239,4 @@ namespace Sahaai.Application.Features.Users.Services
 
     }
 }
+

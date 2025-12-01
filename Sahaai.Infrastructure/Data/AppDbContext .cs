@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Sahaai.Domain.Entities;
-    
+
 
 namespace Sahaai.Infrastructure.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options)
            : base(options)
@@ -21,6 +21,14 @@ namespace Sahaai.Infrastructure.Data
         public DbSet<WorkerDetails> WorkerDetails { get; set; }
 
         public DbSet<Service> Service { get; set; }
+
+        public DbSet<UserLocation> UserLocations { get; set; }
+
+        public DbSet<UserLocationHistory> UserLocationHistory { get; set; }
+
+        public DbSet<ServiceRequest> ServiceRequests { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
