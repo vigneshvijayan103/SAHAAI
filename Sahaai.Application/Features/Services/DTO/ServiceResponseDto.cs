@@ -10,6 +10,8 @@ namespace Sahaai.Application.Features.Services.DTO
     {
         public int Id { get; set; }
         public string ServiceName { get; set; } = string.Empty;
+
+        public string? ImageUrl { get; set; }
         public string? Description { get; set; }
         public bool IsActive { get; set; }
     }
