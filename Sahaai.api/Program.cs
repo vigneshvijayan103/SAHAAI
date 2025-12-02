@@ -22,6 +22,7 @@ using System.Text.Json;
 using System.Threading.RateLimiting;
 using Sahaai.Application.Features.Locations.Interfaces;
 using Sahaai.Application.Features.Locations.Services;
+Console.WriteLine("RUNNING FROM: " + Directory.GetCurrentDirectory());
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();
@@ -44,7 +45,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 //Auto mapper and fluent validation
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());    
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>();
