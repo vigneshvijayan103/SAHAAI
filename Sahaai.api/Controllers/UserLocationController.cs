@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Sahaai.Application.Common;
 using Sahaai.Application.Features.Locations.DTO;
 using Sahaai.Application.Features.Locations.Interfaces;
+using Sprache;
 using System.Security.Claims;
 
 namespace Sahaai.Api.Controllers
 {
+   
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles ="User")]
     public class UserLocationController : ControllerBase
     {
         private readonly IUserLocationService _locationService;
@@ -25,11 +29,13 @@ namespace Sahaai.Api.Controllers
                 return BadRequest("Invalid payload");
 
             int userId = int.Parse(User.FindFirst("userId")!.Value);
+            string role = User.FindFirst("role")!.Value;
 
-            var response = await _locationService.UpdateUserLocationAsync(userId, dto);
+            var result = await _locationService.UpdateUserLocationAsync(userId, role, dto);
 
-            return StatusCode(response.StatusCode, response);
+            return Ok(new ApiResponse<string>(200, result));
         }
+
 
         //get latest location
         [HttpGet("latest")]
@@ -37,10 +43,12 @@ namespace Sahaai.Api.Controllers
         {
             int userId = int.Parse(User.FindFirst("userId")!.Value);
 
-
             var response = await _locationService.GetLatestLocationAsync(userId);
 
-            return StatusCode(response.StatusCode, response);
+            if (response == null)
+                return NotFound(new ApiResponse<LocationResponseDto>(404, "No location found"));
+
+            return Ok(new ApiResponse<LocationResponseDto>(200, "Success", response));
         }
 
         // Get All locations 
@@ -51,12 +59,8 @@ namespace Sahaai.Api.Controllers
 
             var response = await _locationService.GetLocationHistoryAsync(userId);
 
-            return StatusCode(response.StatusCode, response);
+            return Ok(new ApiResponse<List<LocationResponseDto>>(200, "Success", response));
         }
-
-       
-
-
 
 
 

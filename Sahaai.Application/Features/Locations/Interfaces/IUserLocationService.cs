@@ -11,9 +11,9 @@ namespace Sahaai.Application.Features.Locations.Interfaces
 {
     public interface IUserLocationService
     {
-        Task<ApiResponse<string>> UpdateUserLocationAsync(int userId, UpdateLocationDto dto);
-        Task<ApiResponse<LocationResponseDto>> GetLatestLocationAsync(int userId);
-        Task<ApiResponse<List<LocationResponseDto>>> GetLocationHistoryAsync(int userId);
-        Task<ApiResponse<List<object>>> GetNearbyWorkersAsync(double latitude, double longitude, double radius);
+        Task<string> UpdateUserLocationAsync(int userId, string role, UpdateLocationDto dto);
+        Task<LocationResponseDto?> GetLatestLocationAsync(int userId);
+        Task<List<LocationResponseDto>> GetLocationHistoryAsync(int userId);
+       
     }
 }
