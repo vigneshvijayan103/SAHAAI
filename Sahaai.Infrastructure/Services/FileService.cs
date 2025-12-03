@@ -34,11 +34,12 @@ namespace Sahaai.Infrastructure.Services
 
             string fullPath = Path.Combine(folderPath, fileName);
 
+
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
-
+           
             return $"/{folderName}/{fileName}";
         }
     }

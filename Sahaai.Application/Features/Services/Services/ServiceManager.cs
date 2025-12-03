@@ -1,14 +1,15 @@
-﻿using Sahaai.Domain.Entities;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Sahaai.Application.Common;
+using Sahaai.Application.Features.Services.DTO;
+using Sahaai.Application.Features.Services.DTO.ServiceManage;
+using Sahaai.Application.Features.Services.Interfaces;
+using Sahaai.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Sahaai.Application.Features.Services.DTO.ServiceManage;
-using Sahaai.Application.Features.Services.Interfaces;
-using Sahaai.Application.Common;
-using Sahaai.Application.Features.Services.DTO;
-using AutoMapper;
 
 namespace Sahaai.Application.Features.Services.Services
 {
@@ -17,16 +18,19 @@ namespace Sahaai.Application.Features.Services.Services
         private readonly IServiceRepository _repo;
         private readonly IFileService _service;
         private readonly IMapper _mapper;
+        private readonly IHttpContextAccessor _context;
 
 
         public ServiceManager(IServiceRepository repo,
                                IFileService service,
-                               IMapper mapper
+                               IMapper mapper,
+                               IHttpContextAccessor context
                                )
         {
             _repo = repo;
             _service = service;
             _mapper=mapper;
+            _context = context;
         }
 
         //Create Service
@@ -101,7 +105,23 @@ namespace Sahaai.Application.Features.Services.Services
                     .Where(s => !s.IsDeleted)
                     .ToList();
 
-            return _mapper.Map<List<ServiceResponseDto>>(activeServices);
+            var dtoList = _mapper.Map<List<ServiceResponseDto>>(activeServices);
+
+            string baseUrl = $"{_context.HttpContext.Request.Scheme}://{_context.HttpContext.Request.Host}";
+
+           
+            foreach (var dto in dtoList)
+            {
+                if (!string.IsNullOrWhiteSpace(dto.ImageUrl))
+                {
+                   
+                    if (dto.ImageUrl.StartsWith("/"))
+                    {
+                        dto.ImageUrl = baseUrl + dto.ImageUrl;
+                    }
+                }
+            }
+            return dtoList;
         }
 
         //get service by id
@@ -113,7 +133,17 @@ namespace Sahaai.Application.Features.Services.Services
                 return null;
 
 
-            return _mapper.Map<ServiceResponseDto>(service);
+            var dto = _mapper.Map<ServiceResponseDto>(service);
+
+            string baseUrl = $"{_context.HttpContext.Request.Scheme}://{_context.HttpContext.Request.Host}";
+
+          
+            if (!string.IsNullOrWhiteSpace(dto.ImageUrl) && dto.ImageUrl.StartsWith("/"))
+            {
+                dto.ImageUrl = baseUrl + dto.ImageUrl;
+            }
+
+            return dto;
 
         }
     }

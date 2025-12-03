@@ -71,6 +71,12 @@ builder.Services.AddSignalR();
 
 
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient("Nominatim", client =>
+{
+    client.BaseAddress = new Uri("https://nominatim.openstreetmap.org/");
+    client.DefaultRequestHeaders.Add("User-Agent", "SahaaiApp/1.0");
+});
+
 
 // JWT Authentication Setup
 var jwtSecret = Environment.GetEnvironmentVariable("JWT_SECRET");

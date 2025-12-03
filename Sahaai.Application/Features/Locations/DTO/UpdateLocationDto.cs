@@ -11,5 +11,6 @@ namespace Sahaai.Application.Features.Locations.DTO
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public double Accuracy { get; set; }
+        public string? Address { get; set; }
     }
 }
