@@ -22,11 +22,8 @@ namespace Sahaai.Infrastructure.Data
 
         public DbSet<Service> Service { get; set; }
 
-        public DbSet<UserLocation> UserLocations { get; set; }
+        public DbSet<UserAddress> UserAddresses { get; set; }
 
-        public DbSet<UserLocationHistory> UserLocationHistory { get; set; }
-
-        public DbSet<ServiceRequest> ServiceRequests { get; set; }
 
 
 

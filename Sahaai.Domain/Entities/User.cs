@@ -25,5 +25,8 @@ namespace Sahaai.Domain.Entities
 
         public Login? Login { get; set; }
 
+        public ICollection<UserAddress> Addresses { get; set; }
+
+
     }
 }

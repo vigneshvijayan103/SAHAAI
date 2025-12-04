@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Application.Features.Locations.DTO
 {
-    public class UpdateLocationDto
+    public class AddAddressDto
     {
+        public string FullAddress { get; set; }
+
         public double Latitude { get; set; }
         public double Longitude { get; set; }
-        public double Accuracy { get; set; }
-        public string? Address { get; set; }
+
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public string? Pincode { get; set; }
+
+        public bool IsDefault { get; set; }
     }
 }

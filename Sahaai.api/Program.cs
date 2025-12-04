@@ -22,6 +22,7 @@ using System.Text.Json;
 using System.Threading.RateLimiting;
 using Sahaai.Application.Features.Locations.Interfaces;
 using Sahaai.Application.Features.Locations.Services;
+//using Sahaai.Application.Features.Locations.Services;
 Console.WriteLine("RUNNING FROM: " + Directory.GetCurrentDirectory());
 
 var builder = WebApplication.CreateBuilder(args);
@@ -45,7 +46,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 //Auto mapper and fluent validation
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());    
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>();
@@ -55,13 +56,13 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>()
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserAuthService, UserAuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-;builder.Services.AddScoped<IForgotPasswordService, ForgotPasswordService>();
-builder.Services.AddScoped<IUserProfileService,UserProfileService>();
+; builder.Services.AddScoped<IForgotPasswordService, ForgotPasswordService>();
+builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 builder.Services.AddScoped<IOtpService, OtpService>();
 builder.Services.AddScoped<IMailkitService, MailkitService>();
-builder.Services.AddScoped<ILocationRepository, LocationRepository>();
-builder.Services.AddScoped<IUserLocationService, UserLocationService>();
+builder.Services.AddScoped<IUserAddressRepository, UserAddressRepository>();
+builder.Services.AddScoped<IUserAddressService, UserAddressService>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
@@ -71,6 +72,7 @@ builder.Services.AddSignalR();
 
 
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddHttpClient("Nominatim", client =>
 {
     client.BaseAddress = new Uri("https://nominatim.openstreetmap.org/");
@@ -105,13 +107,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         {
             OnMessageReceived = context =>
             {
-                
+
                 return Task.CompletedTask;
             },
             OnAuthenticationFailed = context =>
             {
-                
-                
+
+
                 return Task.CompletedTask;
             }
         };
@@ -155,7 +157,7 @@ builder.Services.AddSwaggerGen(c =>
 //Rate limiting configuration
 builder.Services.AddRateLimiter(options =>
 {
-   //Global Rate Limiting
+    //Global Rate Limiting
     options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(context =>
     {
         var ip = context.Connection.RemoteIpAddress?.ToString() ?? "unknown";
@@ -178,9 +180,9 @@ builder.Services.AddRateLimiter(options =>
             key,
             _ => new TokenBucketRateLimiterOptions
             {
-                TokenLimit = 1,                   
-                TokensPerPeriod = 1,               
-                ReplenishmentPeriod = TimeSpan.FromSeconds(60), 
+                TokenLimit = 1,
+                TokensPerPeriod = 1,
+                ReplenishmentPeriod = TimeSpan.FromSeconds(60),
                 AutoReplenishment = true,
                 QueueLimit = 0
             });

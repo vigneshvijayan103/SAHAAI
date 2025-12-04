@@ -12,8 +12,8 @@ using Sahaai.Infrastructure.Data;
 namespace Sahaai.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251201085647_AddUserLocationAndHistoryTables")]
-    partial class AddUserLocationAndHistoryTables
+    [Migration("20251204083540_AddUserAddresstable")]
+    partial class AddUserAddresstable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -196,17 +196,40 @@ namespace Sahaai.Infrastructure.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("Sahaai.Domain.Entities.UserLocation", b =>
+            modelBuilder.Entity("Sahaai.Domain.Entities.UserAddress", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<double>("Accuracy")
-                        .HasColumnType("float");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("City")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DeletedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullAddress")
+                        .IsRequired()
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
+
+                    b.Property<bool>("IsDefault")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<double>("Latitude")
                         .HasColumnType("float");
@@ -214,12 +237,28 @@ namespace Sahaai.Infrastructure.Migrations
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("UserId");
+                    b.Property<string>("Pincode")
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
-                    b.ToTable("UserLocations", (string)null);
+                    b.Property<string>("State")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserAddress", (string)null);
                 });
 
             modelBuilder.Entity("Sahaai.Domain.Entities.WorkerDetails", b =>
@@ -281,13 +320,15 @@ namespace Sahaai.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Sahaai.Domain.Entities.UserLocation", b =>
+            modelBuilder.Entity("Sahaai.Domain.Entities.UserAddress", b =>
                 {
-                    b.HasOne("Sahaai.Domain.Entities.User", null)
-                        .WithOne()
-                        .HasForeignKey("Sahaai.Domain.Entities.UserLocation", "UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                    b.HasOne("Sahaai.Domain.Entities.User", "User")
+                        .WithMany("Addresses")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Sahaai.Domain.Entities.WorkerDetails", b =>
@@ -303,6 +344,8 @@ namespace Sahaai.Infrastructure.Migrations
 
             modelBuilder.Entity("Sahaai.Domain.Entities.User", b =>
                 {
+                    b.Navigation("Addresses");
+
                     b.Navigation("Login");
 
                     b.Navigation("WorkerDetails");
