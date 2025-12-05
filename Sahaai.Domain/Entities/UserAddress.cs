@@ -23,5 +23,7 @@ namespace Sahaai.Domain.Entities
 
        
         public User User { get; set; }
+        public ICollection<ServiceRequest> ServiceRequests { get; set; }
+
     }
 }

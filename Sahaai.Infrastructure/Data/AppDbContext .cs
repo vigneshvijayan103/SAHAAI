@@ -24,6 +24,8 @@ namespace Sahaai.Infrastructure.Data
 
         public DbSet<UserAddress> UserAddresses { get; set; }
 
+        public DbSet<ServiceRequest> ServiceRequests { get; set; }
+
 
 
 
