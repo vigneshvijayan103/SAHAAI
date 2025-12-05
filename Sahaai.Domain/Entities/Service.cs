@@ -14,6 +14,8 @@ namespace Sahaai.Domain.Entities
         public string? ImageUrl { get; set; }
         public bool IsActive { get; set; } = true;
 
+        public ICollection<ServiceRequest> ServiceRequests { get; set; }
+
 
     }
 }   
