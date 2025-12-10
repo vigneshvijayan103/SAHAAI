@@ -9,6 +9,7 @@ namespace Sahaai.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class UserProfileController : ControllerBase
     {
         private readonly IUserProfileService _service;

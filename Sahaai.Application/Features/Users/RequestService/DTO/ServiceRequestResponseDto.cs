@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sahaai.Application.Features.Users.RequesrService
+namespace Sahaai.Application.Features.Users.RequestService.DTO
 {
     public class ServiceRequestResponseDto
     {
