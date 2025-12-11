@@ -9,21 +9,21 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Sahaai.Api.Middleware;
 using Sahaai.Application.Common;
+using Sahaai.Application.Features.Locations.Interfaces;
+using Sahaai.Application.Features.Locations.Services;
+using Sahaai.Application.Features.RequestService.Interfaces;
+using Sahaai.Application.Features.RequestService.Services;
+using Sahaai.Application.Features.Services.Interfaces;
+using Sahaai.Application.Features.Services.Services;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Application.Features.Users.Services;
 using Sahaai.Application.Features.Users.Validators;
-using Sahaai.Application.Features.Services.Interfaces;
-using Sahaai.Application.Features.Services.Services;
 using Sahaai.Infrastructure.Data;
 using Sahaai.Infrastructure.Repositories;
 using Sahaai.Infrastructure.Services;
 using System.Text;
 using System.Text.Json;
 using System.Threading.RateLimiting;
-using Sahaai.Application.Features.Locations.Interfaces;
-using Sahaai.Application.Features.Locations.Services;
-//using Sahaai.Application.Features.Locations.Services;
-Console.WriteLine("RUNNING FROM: " + Directory.GetCurrentDirectory());
 
 var builder = WebApplication.CreateBuilder(args);
 Env.Load();
@@ -66,6 +66,9 @@ builder.Services.AddScoped<IUserAddressService, UserAddressService>();
 builder.Services.AddScoped<IServiceManager, ServiceManager>();
 builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IServiceRequestRepository, ServiceRequestRepository>();
+builder.Services.AddScoped<IServiceRequestService, ServiceRequestService>();
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 builder.Services.AddSignalR();
 
 

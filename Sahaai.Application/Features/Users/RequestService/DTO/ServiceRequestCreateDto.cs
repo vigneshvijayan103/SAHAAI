@@ -10,8 +10,6 @@ namespace Sahaai.Application.Features.Users.RequesrService.DTO
 {
     public class ServiceRequestCreateDto
     {
-        [Required]
-        public int UserId { get; set; }
 
         [Required]
         public int ServiceId { get; set; }

@@ -28,5 +28,17 @@ namespace Sahaai.Domain.Entities
 
         public DateTime? AcceptedAt { get; set; }
 
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public double SearchRadius { get; set; } = 5;
+        public DateTime? ExpireAt { get; set; }
+
+        public bool IsAssigned { get; set; } = false;
+
+        public string? CancellationReason { get; set; }
+        public string? CancelledBy { get; set; }
+        public DateTime? CancelledAt { get; set; }
+
+        public DateTime? CompletedAt { get; set; }
     }
 }
