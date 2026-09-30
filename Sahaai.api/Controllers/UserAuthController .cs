@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
@@ -51,15 +51,15 @@ namespace Sahaai.Api.Controllers
         [HttpPost("verify-otp")]
         public async Task<IActionResult> VerifyOtp([FromBody] VerifyOtpDto dto)
         {
-            if (dto.Id <= 0 || string.IsNullOrWhiteSpace(dto.Otp))
+            if (string.IsNullOrWhiteSpace(dto.Otp) || (string.IsNullOrWhiteSpace(dto.Email) && (dto.Id == null || dto.Id <= 0)))
             {
                 return BadRequest(new ApiResponse<string>(
                     400,
-                    "UserId and OTP are required"
+                    "Email and 6-digit OTP are required"
                 ));
             }
 
-            var result = await _userAuthService.VerifyOtpAsync(dto.Id, dto.Otp);
+            var result = await _userAuthService.VerifyOtpAsync(dto);
 
             if (!result.Success)
             {
@@ -151,13 +151,17 @@ namespace Sahaai.Api.Controllers
             return Ok(response);
         }
 
-
-
-
-
-
-
-
+        // Check current authenticated user status
+        [Authorize]
+        [HttpGet("status")]
+        public IActionResult GetStatus()
+        {
+            return Ok(new ApiResponse<object>(
+                200,
+                "Account is active",
+                new { isActive = true }
+            ));
+        }
     }
 }
 

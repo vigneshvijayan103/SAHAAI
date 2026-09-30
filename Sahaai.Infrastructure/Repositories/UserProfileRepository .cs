@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Domain.Entities;
 using Sahaai.Infrastructure.Data;
@@ -10,31 +10,24 @@ using System.Threading.Tasks;
 
 namespace Sahaai.Infrastructure.Repositories
 {
-    public class UserProfileRepository : IUserProfileRepository
+    public class UserProfileRepository : GenericRepository<User>, IUserProfileRepository
     {
-        private readonly AppDbContext _db;
-
-        public UserProfileRepository(AppDbContext db)
+        public UserProfileRepository(AppDbContext db) : base(db)
         {
-            _db = db;
         }
 
-        //Get user profile by userId
         public async Task<User?> GetProfileAsync(int userId)
         {
-            return await _db.Users
+            return await _dbSet
               .Include(u => u.Login)
               .FirstOrDefaultAsync(x => x.Id == userId);
-
         }
 
-        //update user
         public async Task UpdateUserAsync(User user)
         {
-            _db.Users.Update(user);
-            await _db.SaveChangesAsync();
+            Update(user);
+            await SaveChangesAsync();
         }
-
-
     }
 }
+

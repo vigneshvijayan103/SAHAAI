@@ -1,4 +1,4 @@
-﻿using Sahaai.Domain.Enums;
+using Sahaai.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +18,15 @@ namespace Sahaai.Application.Features.RequestService.DTO
         public string  Status { get; set; }
 
         public string AddressLine { get; set; }    
+        public double? Latitude { get; set; }
+        public double? Longitude { get; set; }
         
         public int? AssignedWorkerId { get; set; }
         public string? AssignedWorkerName { get; set; }
+        public string? AssignedWorkerPhone { get; set; }
+        public string? AssignedWorkerPhoto { get; set; }
+        public double? WorkerLatitude { get; set; }
+        public double? WorkerLongitude { get; set; }
 
         public DateTime CreatedOn { get; set; }
         public DateTime? AcceptedAt { get; set; }

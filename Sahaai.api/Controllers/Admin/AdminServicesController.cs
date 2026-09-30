@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sahaai.Application.Common;
@@ -10,8 +10,8 @@ using Sahaai.Application.Features.Services.Interfaces;
 namespace Sahaai.Api.Controllers.Admin
 {
     [Route("api/[controller]")]
+    [Route("api/Services")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
     public class AdminServicesController : ControllerBase
     {
         private readonly IServiceManager _service;
@@ -23,6 +23,7 @@ namespace Sahaai.Api.Controllers.Admin
 
         //Add service
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> CreateService([FromForm] CreateServiceDto dto)
         {
@@ -60,6 +61,7 @@ namespace Sahaai.Api.Controllers.Admin
 
         //update service
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> UpdateService(int id, [FromForm] UpdateServiceDto dto)
         {
@@ -75,6 +77,7 @@ namespace Sahaai.Api.Controllers.Admin
 
         //delete service
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteService(int id)
         {
             var result = await _service.DeleteAsync(id);

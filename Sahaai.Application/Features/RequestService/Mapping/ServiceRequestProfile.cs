@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Sahaai.Application.Features.RequestService.DTO;
 using Sahaai.Application.Features.Users.RequesrService.DTO;
 using Sahaai.Domain.Entities;
@@ -16,7 +16,8 @@ namespace Sahaai.Application.Features.RequestService.Mapping
         {
             CreateMap<ServiceRequest, ServiceRequestStatusDto>()
                 .ForMember(d => d.Status, o => o.MapFrom(s => s.Status.ToString()))
-                .ForMember(d => d.RequestId, o => o.MapFrom(s => s.Id));
+                .ForMember(d => d.RequestId, o => o.MapFrom(s => s.Id))
+                .ForMember(d => d.AssignedWorkerId, o => o.MapFrom(s => s.AsssignWorkerId));
 
             CreateMap<ServiceRequest, ServiceRequestHistoryDto>()
                 .ForMember(d => d.Status, o => o.MapFrom(s => s.Status.ToString()))

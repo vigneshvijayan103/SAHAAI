@@ -1,16 +1,13 @@
-﻿using Sahaai.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Sahaai.Application.Common;
+using Sahaai.Domain.Entities;
 using System.Threading.Tasks;
 
 namespace Sahaai.Application.Features.Users.Interfaces
 {
-    public interface IUserProfileRepository
+    public interface IUserProfileRepository : IGenericRepository<User>
     {
         Task<User?> GetProfileAsync(int userId);
-
         Task UpdateUserAsync(User user);
     }
 }
+

@@ -1,57 +1,32 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Sahaai.Application.Features.Services.Interfaces;
 using Sahaai.Domain.Entities;
 using Sahaai.Infrastructure.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Sahaai.Infrastructure.Repositories
 {
-    public class ServiceRepository:IServiceRepository
+    public class ServiceRepository : GenericRepository<Service>, IServiceRepository
     {
-        private readonly AppDbContext _db;
-
-        public ServiceRepository(AppDbContext db)
+        public ServiceRepository(AppDbContext db) : base(db)
         {
-            _db = db;
         }
 
-        //Add service
-        public async Task AddAsync(Service service)
+        public override async Task<Service?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
-            await _db.Service.AddAsync(service);
+            return await _dbSet
+                .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted, cancellationToken);
         }
 
-
-        //Get Service By Id
-        public async Task<Service?> GetByIdAsync(int id)
+        public override async Task<List<Service>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _db.Service
-                .FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
-        }
-
-
-        //Get all Service
-        public async Task<List<Service>> GetAllAsync()
-        {
-            return await _db.Service
+            return await _dbSet
                 .Where(x => !x.IsDeleted)
-                .ToListAsync();
+                .ToListAsync(cancellationToken);
         }
-
-        //update service
-        public async Task UpdateAsync(Service service)
-        {
-            _db.Service.Update(service);
-        }
-
-        public async Task SaveChangesAsync()
-        {
-            await _db.SaveChangesAsync();
-        }
-
     }
 }
+

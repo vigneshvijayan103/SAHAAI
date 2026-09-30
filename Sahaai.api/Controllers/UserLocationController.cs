@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sahaai.Application.Common;
@@ -109,7 +109,6 @@ namespace Sahaai.Api.Controllers
 
         //delete address
         [HttpDelete("{id}")]
-
         public async Task<IActionResult>SoftdeleteAddress(int id)
         {
             int userId = int.Parse(User.FindFirst("userId")!.Value);
@@ -123,6 +122,46 @@ namespace Sahaai.Api.Controllers
                 return NotFound(new ApiResponse<string>(404, "Address not found"));
 
             return Ok(new ApiResponse<bool>(200, "Address deleted Successfully",true));
+        }
+
+        // Reverse Geocode: lat, lon -> address details
+        [HttpGet("reverse-geocode")]
+        public async Task<IActionResult> ReverseGeocode([FromQuery] double lat, [FromQuery] double lon)
+        {
+            if (lat < -90 || lat > 90 || lon < -180 || lon > 180)
+            {
+                return BadRequest(new ApiResponse<string>(400, "Invalid latitude or longitude coordinates."));
+            }
+
+            var result = await _locationService.ReverseGeocodeAsync(lat, lon);
+            if (result == null)
+            {
+                return NotFound(new ApiResponse<string>(404, "Could not resolve address from coordinates."));
+            }
+
+            return Ok(new ApiResponse<ReverseGeocodeResultDto>(200, "Address resolved successfully", result));
+        }
+
+        // Forward Geocode: address, city, state, pincode -> lat, lon
+        [HttpGet("geocode")]
+        public async Task<IActionResult> Geocode(
+            [FromQuery] string? address,
+            [FromQuery] string? city,
+            [FromQuery] string? state,
+            [FromQuery] string? pincode)
+        {
+            if (string.IsNullOrWhiteSpace(address) && string.IsNullOrWhiteSpace(city) && string.IsNullOrWhiteSpace(pincode))
+            {
+                return BadRequest(new ApiResponse<string>(400, "Please provide address details, city, or pincode to geocode."));
+            }
+
+            var result = await _locationService.GeocodeAddressAsync(address, city, state, pincode);
+            if (result == null)
+            {
+                return NotFound(new ApiResponse<string>(404, "Could not resolve coordinates for the provided address."));
+            }
+
+            return Ok(new ApiResponse<GeocodeResultDto>(200, "Coordinates resolved successfully", result));
         }
 
 

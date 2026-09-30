@@ -1,62 +1,42 @@
-﻿using Sahaai.Application.Common;
+using Microsoft.Extensions.Caching.Memory;
+using Sahaai.Application.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Caching.Distributed;
-
 
 namespace Sahaai.Infrastructure.Services
 {
-    public class OtpService:IOtpService
+    public class OtpService : IOtpService
     {
-        private readonly IDistributedCache _cache;
-        public OtpService(IDistributedCache cache)
+        private readonly IMemoryCache _cache;
+
+        public OtpService(IMemoryCache cache)
         {
             _cache = cache;
         }
 
-        //generate and store otp
-        public async Task<string> GenerateOtpAsync(string email, string purpose)
+        // generate and store otp
+        public Task<string> GenerateOtpAsync(string email, string purpose)
         {
             var otp = new Random().Next(100000, 999999).ToString();
+            string cacheKey = $"otp:{purpose.ToLowerInvariant()}:{email.Trim().ToLowerInvariant()}";
 
-            
-            string redisKey = $"otp:{purpose}:{email}";
+            _cache.Set(cacheKey, otp, TimeSpan.FromMinutes(5));
 
-            await _cache.SetStringAsync(
-                redisKey,
-                otp,
-                new DistributedCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)  
-                });
-
-            return otp;
+            return Task.FromResult(otp);
         }
 
-
-
-        //verify otp
-        public async Task<bool> VerifyOtpAsync(string email, string purpose, string otp)
+        // verify otp
+        public Task<bool> VerifyOtpAsync(string email, string purpose, string otp)
         {
-            string redisKey = $"otp:{purpose}:{email}";
+            string cacheKey = $"otp:{purpose.ToLowerInvariant()}:{email.Trim().ToLowerInvariant()}";
 
-            var storedOtp = await _cache.GetStringAsync(redisKey);
-
-            if (storedOtp == null)
-                return false; 
-
-            if (storedOtp == otp)
+            if (_cache.TryGetValue(cacheKey, out string? storedOtp) && storedOtp == otp.Trim())
             {
-                await _cache.RemoveAsync(redisKey); 
-                return true;
+                _cache.Remove(cacheKey);
+                return Task.FromResult(true);
             }
 
-            return false; 
+            return Task.FromResult(false);
         }
-
-
     }
 }

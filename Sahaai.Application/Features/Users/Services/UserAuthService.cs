@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Sahaai.Application.Common;
 using Sahaai.Application.Features.Users.DTO.Auth;
@@ -103,54 +103,71 @@ namespace Sahaai.Application.Features.Users.Services
         }
 
         //resend otp
-        public async Task ResendOtpAsync(string email)
+        public async Task ResendOtpAsync(string emailOrUsername)
         {
+            if (string.IsNullOrWhiteSpace(emailOrUsername))
+                throw new ArgumentException("Email or username is required");
 
-            var user = await _repo.ExistsAsync(email, null);
+            var trimmed = emailOrUsername.Trim();
+            string? targetEmail = null;
 
-            if (!user)
-                throw new KeyNotFoundException("Email not found");
-
-            var otp = await _otpService.GenerateOtpAsync(email, "register");
-
-            await _mailkitService.SendOtpEmailAsync(email, otp, "register");
-        }
-
-
-
-        //verify otp
-
-        public async Task<OtpVerifyResult> VerifyOtpAsync(int userId, string otp)
-        {
-
-            var user = await _userProfileRepo.GetProfileAsync(userId);
-
-            if (user == null)
+            if (trimmed.Contains('@'))
             {
-                return new OtpVerifyResult
+                var exists = await _repo.ExistsAsync(trimmed, null);
+                if (exists)
                 {
-                    Success = false,
-                    StatusCode = 404,
-                    Message = "User not found"
-                };
+                    targetEmail = trimmed.ToLowerInvariant();
+                }
+            }
+            else
+            {
+                var login = await _repo.GetUserNameAsync(trimmed);
+                if (login?.User != null && !string.IsNullOrWhiteSpace(login.User.Email))
+                {
+                    targetEmail = login.User.Email.Trim().ToLowerInvariant();
+                }
             }
 
+            if (string.IsNullOrWhiteSpace(targetEmail))
+                throw new KeyNotFoundException("No user found with the provided email address");
 
-            if (string.IsNullOrWhiteSpace(user.Email))
+            var otp = await _otpService.GenerateOtpAsync(targetEmail, "register");
+
+            await _mailkitService.SendOtpEmailAsync(targetEmail, otp, "register");
+        }
+
+        //verify otp
+        public async Task<OtpVerifyResult> VerifyOtpAsync(VerifyOtpDto dto)
+        {
+            string? email = dto.Email?.Trim().ToLowerInvariant();
+
+            if (string.IsNullOrWhiteSpace(email) && dto.Id.HasValue && dto.Id.Value > 0)
+            {
+                var userProfile = await _userProfileRepo.GetProfileAsync(dto.Id.Value);
+                if (userProfile == null)
+                {
+                    return new OtpVerifyResult
+                    {
+                        Success = false,
+                        StatusCode = 404,
+                        Message = "User not found"
+                    };
+                }
+                email = userProfile.Email?.Trim().ToLowerInvariant();
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
             {
                 return new OtpVerifyResult
                 {
                     Success = false,
                     StatusCode = 400,
-                    Message = "User email not found"
+                    Message = "Valid email address is required for verification"
                 };
             }
 
-
-            var email = user.Email.Trim().ToLower();
-
             // Verify OTP
-            var isValidOtp = await _otpService.VerifyOtpAsync(email, "register", otp);
+            var isValidOtp = await _otpService.VerifyOtpAsync(email, "register", dto.Otp.Trim());
             if (!isValidOtp)
             {
                 return new OtpVerifyResult
@@ -170,7 +187,7 @@ namespace Sahaai.Application.Features.Users.Services
                 {
                     Success = false,
                     StatusCode = 500,
-                    Message = "Failed to update email verification"
+                    Message = "Failed to update email verification status"
                 };
             }
 
@@ -180,6 +197,11 @@ namespace Sahaai.Application.Features.Users.Services
                 StatusCode = 200,
                 Message = "Email verified successfully"
             };
+        }
+
+        public async Task<OtpVerifyResult> VerifyOtpAsync(int userId, string otp)
+        {
+            return await VerifyOtpAsync(new VerifyOtpDto { Id = userId, Otp = otp });
         }
 
 
@@ -193,6 +215,9 @@ namespace Sahaai.Application.Features.Users.Services
                 throw new UnauthorizedAccessException("Invalid username");
 
             var user = login.User;
+
+            if (user == null || user.IsDeleted || !user.IsActive)
+                throw new UnauthorizedAccessException("Your account is deactivated. Please contact administrator.");
 
             if (!user.IsEmailVerified)
                 throw new UnauthorizedAccessException("Please verify your email first");

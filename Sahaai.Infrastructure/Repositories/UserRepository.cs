@@ -1,37 +1,21 @@
-﻿using Dapper;
 using Microsoft.EntityFrameworkCore;
-using Sahaai.Application.Common;
-using Sahaai.Application.Features.Users.DTO.Auth;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Domain.Entities;
 using Sahaai.Infrastructure.Data;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Sahaai.Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly AppDbContext _db;
-
-
-
-        public UserRepository(AppDbContext db)
+        public UserRepository(AppDbContext db) : base(db)
         {
-            _db = db;
-
-
         }
 
-
-        //Check if user exists by email or username
         public async Task<bool> ExistsAsync(string? email, string? username)
         {
-            return await _db.Users
+            return await _dbSet
                 .Include(u => u.Login)
                 .AnyAsync(u =>
                     (!string.IsNullOrWhiteSpace(email) && u.Email == email) ||
@@ -39,8 +23,6 @@ namespace Sahaai.Infrastructure.Repositories
                 );
         }
 
-
-        //get user by Name
         public async Task<Login> GetUserNameAsync(string UserName)
         {
             return await _db.Logins
@@ -48,28 +30,20 @@ namespace Sahaai.Infrastructure.Repositories
                 .FirstOrDefaultAsync(l => l.Username == UserName);
         }
 
-
-        //get user by Email
         public async Task<User?> GetUserByEmailAsync(string email)
         {
-            return await _db.Users
+            return await _dbSet
                 .Include(u => u.Login)
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
 
-
-
-        //Register User
         public async Task<User> AddUserAsync(User user)
         {
-            await _db.Users.AddAsync(user);
-
-            await _db.SaveChangesAsync();
-
+            await AddAsync(user);
+            await SaveChangesAsync();
             return user;
         }
 
-        //Verify User Email
         public async Task<bool> VerifyUserEmailAsync(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
@@ -77,9 +51,8 @@ namespace Sahaai.Infrastructure.Repositories
 
             var normalized = email.Trim().ToLower();
 
-            var user = await _db.Users
+            var user = await _dbSet
                 .FirstOrDefaultAsync(u => u.Email.ToLower() == normalized);
-
 
             if (user == null)
                 return false;
@@ -87,29 +60,15 @@ namespace Sahaai.Infrastructure.Repositories
             user.IsEmailVerified = true;
             user.EmailVerifiedAt = DateTime.Now;
 
-            await _db.SaveChangesAsync();
+            await SaveChangesAsync();
             return true;
         }
 
-
-        //update db after Login
         public async Task UpdateLoginAsync(Login login)
         {
             _db.Logins.Update(login);
-            await _db.SaveChangesAsync();
+            await SaveChangesAsync();
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
+

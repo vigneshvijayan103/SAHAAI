@@ -18,6 +18,14 @@ using Sahaai.Application.Features.Services.Services;
 using Sahaai.Application.Features.Users.Interfaces;
 using Sahaai.Application.Features.Users.Services;
 using Sahaai.Application.Features.Users.Validators;
+using Sahaai.Application.Features.Admin.Interfaces;
+using Sahaai.Application.Features.Reviews.Interfaces;
+using Sahaai.Application.Features.Reviews.Services;
+using Sahaai.Application.Features.Workers.Interfaces;
+using Sahaai.Api.Hubs;
+using Sahaai.Api.Services;
+using Sahaai.Domain.Entities;
+using Sahaai.Domain.Enums;
 using Sahaai.Infrastructure.Data;
 using Sahaai.Infrastructure.Repositories;
 using Sahaai.Infrastructure.Services;
@@ -26,16 +34,15 @@ using System.Text.Json;
 using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
-Env.Load();
+Env.TraversePath().Load();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration["Redis:ConnectionString"];
-});
+// In-Memory Caching (replaces Redis)
+builder.Services.AddMemoryCache();
+builder.Services.AddDistributedMemoryCache();
 
 
 
@@ -53,6 +60,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>()
 
 
 //Dependency Injection
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserAuthService, UserAuthService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -69,7 +77,30 @@ builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IServiceRequestRepository, ServiceRequestRepository>();
 builder.Services.AddScoped<IServiceRequestService, ServiceRequestService>();
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
+builder.Services.AddScoped<IAdminDashboardService, AdminDashboardService>();
+builder.Services.AddScoped<IAdminUserService, AdminUserService>();
+builder.Services.AddScoped<IAdminServiceRequestService, AdminServiceRequestService>();
+
+builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
+builder.Services.AddScoped<IWorkerAuthService, WorkerAuthService>();
+builder.Services.AddScoped<IWorkerService, WorkerService>();
+builder.Services.AddScoped<IWorkerNotificationService, WorkerNotificationService>();
+
+builder.Services.AddScoped<IWorkerReviewRepository, WorkerReviewRepository>();
+builder.Services.AddScoped<IWorkerReviewService, WorkerReviewService>();
+
 builder.Services.AddSignalR();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.SetIsOriginAllowed(_ => true)
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
 
 
 
@@ -252,15 +283,144 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("AllowFrontend");
+
 app.UseStaticFiles();
-app.UseHttpsRedirection();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseRateLimiter();
 app.UseAuthentication();
+app.UseMiddleware<ActiveUserMiddleware>();
 app.UseAuthorization();
 
-
 app.MapControllers();
+app.MapHub<RequestHub>("/hubs/request");
+app.MapHub<NearbyHub>("/hubs/nearby");
+
+// Automatic Admin Seeder
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var dbContext = services.GetRequiredService<AppDbContext>();
+        var authService = services.GetRequiredService<IAuthService>();
+
+        var adminUsername = Environment.GetEnvironmentVariable("ADMIN_USERNAME") ?? "admin";
+        var adminPassword = Environment.GetEnvironmentVariable("ADMIN_PASSWORD") ?? "Admin@123";
+        var adminEmail = Environment.GetEnvironmentVariable("ADMIN_EMAIL") ?? "admin@sahaai.com";
+        var adminFullName = Environment.GetEnvironmentVariable("ADMIN_FULLNAME") ?? "System Administrator";
+        var adminPhone = Environment.GetEnvironmentVariable("ADMIN_PHONE") ?? "9999999999";
+
+        var adminExists = await dbContext.Users
+            .Include(u => u.Login)
+            .AnyAsync(u => u.Role == UserRole.Admin || u.Email == adminEmail || (u.Login != null && u.Login.Username == adminUsername));
+
+        if (!adminExists)
+        {
+            authService.CreatePasswordHash(adminPassword, out byte[] hash, out byte[] salt);
+
+            var adminUser = new User
+            {
+                FullName = adminFullName,
+                Email = adminEmail,
+                Phone = adminPhone,
+                Role = UserRole.Admin,
+                IsActive = true,
+                IsEmailVerified = true,
+                EmailVerifiedAt = DateTime.UtcNow,
+                CreatedBy = "SystemSeeder",
+                CreatedOn = DateTime.UtcNow,
+                Login = new Login
+                {
+                    Username = adminUsername,
+                    PasswordHash = Convert.ToBase64String(hash),
+                    PasswordSalt = Convert.ToBase64String(salt)
+                }
+            };
+
+            await dbContext.Users.AddAsync(adminUser);
+            await dbContext.SaveChangesAsync();
+            Console.WriteLine($"[Seeder] Seeded Admin account: Username='{adminUsername}', Email='{adminEmail}'.");
+        }
+
+        // Seed Emergency Services if not present
+        if (!await dbContext.Service.AnyAsync())
+        {
+            var defaultServices = new List<Service>
+            {
+                new Service
+                {
+                    ServiceName = "Electrical Emergency",
+                    Description = "Rapid assistance for short circuits, power outages, fuse replacements, and hazardous wiring issues.",
+                    ImageUrl = "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                },
+                new Service
+                {
+                    ServiceName = "Plumbing & Pipe Burst",
+                    Description = "Immediate fix for severe pipe leaks, overflowing drains, water heater failures, and clogged mainlines.",
+                    ImageUrl = "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                },
+                new Service
+                {
+                    ServiceName = "Roadside & Vehicle Breakdown",
+                    Description = "Emergency battery jumpstart, flat tyre repair, towing support, and on-spot mechanic assistance.",
+                    ImageUrl = "https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                },
+                new Service
+                {
+                    ServiceName = "Appliance Repair & Servicing",
+                    Description = "Fast diagnostics and repair for refrigerators, ACs, washing machines, and cooking hobs.",
+                    ImageUrl = "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                },
+                new Service
+                {
+                    ServiceName = "Emergency Locksmith",
+                    Description = "Door lockout rescue, broken key extraction, digital lock resetting, and emergency security locks.",
+                    ImageUrl = "https://images.unsplash.com/photo-1558002038-1055907df827?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                },
+                new Service
+                {
+                    ServiceName = "Carpentry & Structural Fix",
+                    Description = "Urgent door/window latch repairs, broken furniture stabilization, and security reinforcement.",
+                    ImageUrl = "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=600&auto=format&fit=crop&q=80",
+                    IsActive = true,
+                    CreatedBy = "SystemSeeder",
+                    CreatedOn = DateTime.UtcNow
+                }
+            };
+
+            await dbContext.Service.AddRangeAsync(defaultServices);
+            await dbContext.SaveChangesAsync();
+            Console.WriteLine($"[Seeder] Seeded {defaultServices.Count} emergency services into database.");
+        }
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "[Seeder] An error occurred while seeding the default data.");
+    }
+}
 
 app.Run();

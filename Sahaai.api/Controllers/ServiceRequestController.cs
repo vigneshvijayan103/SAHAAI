@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sahaai.Application.Common;
@@ -34,15 +34,13 @@ namespace Sahaai.Api.Controllers
 
 
 
-            var request = await _service.RaiseRequestAsync(userId, role,dto);
+            var request = await _service.RaiseRequestAsync(userId, role, dto);
 
-            return Ok(new
+            return Ok(new ApiResponse<object>(200, "Service Request Created Successfully", new
             {
                 requestId = request.Id,
-                message = "Service Request Created Successfully",
                 status = request.Status.ToString()
-            });
-
+            }));
         }
 
         //cancel service request

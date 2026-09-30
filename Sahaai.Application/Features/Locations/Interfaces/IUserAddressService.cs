@@ -1,4 +1,4 @@
-﻿using Sahaai.Application.Common;
+using Sahaai.Application.Common;
 using Sahaai.Application.Features.Locations.DTO;
 using Sahaai.Domain.Entities;
 using System;
@@ -17,9 +17,7 @@ namespace Sahaai.Application.Features.Locations.Interfaces
         Task<AddressResponseDto> AddAddressAsync(int userId, string role, AddAddressDto dto);
         Task<AddressResponseDto?> UpdateAddressAsync(int id, int userId, string role, UpdateAddressDto dto);
         Task<bool> DeleteAddressAsync(int id, string role, int userId);
-
-
-
-
+        Task<ReverseGeocodeResultDto?> ReverseGeocodeAsync(double latitude, double longitude);
+        Task<GeocodeResultDto?> GeocodeAddressAsync(string? address, string? city, string? state, string? pincode);
     }
 }

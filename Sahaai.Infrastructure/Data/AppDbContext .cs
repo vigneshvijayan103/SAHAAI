@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +26,7 @@ namespace Sahaai.Infrastructure.Data
 
         public DbSet<ServiceRequest> ServiceRequests { get; set; }
 
-
-
+        public DbSet<WorkerReview> WorkerReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
